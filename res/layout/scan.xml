@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:id="@+id/scanLayout"
+    >
+   
+    <TextView 
+        android:id="@+id/scan_name"
+        android:paddingLeft="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ff0000"
+        android:textSize="20sp"
+        />
+    <ImageView 
+        android:id="@+id/scan_image"
+        android:layout_width="fill_parent"
+        android:layout_height="220dp"
+        android:layout_gravity="center_horizontal"
+        
+        
+        />
+    <Gallery 
+        android:id="@+id/scan_discountGoods"
+        android:layout_width="fill_parent"
+        android:layout_height="128dp"
+        android:layout_gravity="left"
+        android:spacing="10sp"
+        />
+    <TextView 
+        android:id="@+id/scan_address"
+        android:paddingLeft="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+        
+        
+</LinearLayout>

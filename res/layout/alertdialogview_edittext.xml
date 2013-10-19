@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:id="@+id/settinglayout"
+    tools:context=".MainActivity" 
+    android:background="#85007cdc">
+   
+    <EditText
+        android:inputType="text"
+        android:id="@+id/scope"
+        android:hint="请输入搜索范围"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        />
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="  米"
+        android:textColor="#f0f0f0"
+        />
+  
+    
+    
+</LinearLayout>

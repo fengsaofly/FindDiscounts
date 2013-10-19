@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+    <com.baidu.mapapi.map.MapView android:id="@+id/bmapView"
+	    android:layout_width="fill_parent" android:layout_height="fill_parent" 
+	    android:clickable="true"     
+	>
+
+      
+
+    </com.baidu.mapapi.map.MapView>
+    
+    
+          <ImageView
+          android:id="@+id/currentImage"
+          android:layout_width="96dp"
+          android:layout_height="96dp"
+          android:layout_alignParentTop="true"
+          android:layout_alignParentRight="true"
+          android:alpha="0.8"
+         
+           />
+
+      <ImageView
+          android:id="@+id/imageView1"
+          android:layout_width="fill_parent"
+          android:layout_height="fill_parent"
+          android:layout_centerInParent="true"
+          android:alpha="0.8"
+           android:visibility="invisible"
+           />
+      
+            <ImageButton
+                android:id="@+id/leftButton"
+                android:layout_width="70dip"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="100dp"
+                android:layout_marginLeft="20dp"
+                android:alpha="0.4"
+                android:text="left" 
+               android:background="@drawable/arrow_toright"
+                 android:visibility="invisible"/>
+            
+                  <ImageButton
+          android:id="@+id/rightButton"
+          android:layout_width="70dip"
+          android:layout_height="50dip"
+          android:layout_alignParentRight="true"
+          android:text="right"
+          android:layout_alignParentBottom="true"
+          android:layout_marginBottom="100dp"
+          android:layout_marginRight="20dp"
+          android:alpha="0.4"
+          android:background="@drawable/arrow_toleft"
+                    android:visibility="invisible"
+           />
+
+    <!--  
+     <LinearLayout
+        android:layout_width="wrap_content"
+        android:minWidth="100dip"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="#D000"
+        android:orientation="vertical"
+        android:padding="2dp" 
+        android:layout_marginTop="80dip">
+
+       <RadioGroup android:id="@+id/radioGroup" android:contentDescription="定位icon" android:layout_width="wrap_content" android:layout_height="wrap_content">
+ 			<RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/defaulticon" android:text="默认图标" android:checked="true"></RadioButton>
+			<RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/customicon" android:text="自定义图标"></RadioButton>    
+		</RadioGroup>
+
+    </LinearLayout>
+
+     <Button
+         android:id="@+id/button1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentRight="true"
+         android:layout_alignParentTop="true"
+         android:layout_marginRight="25dp"
+         android:layout_marginTop="10dip"
+         android:background="@drawable/custom_loc"  />
+         -->
+    
+    
+     <SlidingDrawer
+         
+
+        android:id="@+id/sliding"
+
+        android:layout_width="120dp"
+
+        android:layout_height="200dp"
+
+        android:content="@+id/allSelection"
+
+        android:handle="@+id/imageViewIcon"
+        android:layout_marginBottom="15dp"
+
+        android:orientation="vertical" 
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentBottom="true"
+        
+         >
+       <ImageView
+
+            android:id="@+id/imageViewIcon"
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+            />
+
+ 
+
+        <ListView
+
+            android:id="@+id/allSelection"
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+           
+
+        />
+
+ 
+
+        
+
+    </SlidingDrawer>
+
+</RelativeLayout>

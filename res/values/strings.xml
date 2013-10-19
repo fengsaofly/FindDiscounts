@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TestBaiduAPI</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+     <string name="Location">Location</string>
+      <string name="condition">搜索条件</string>
+      
+<string-array name="searchCondition">
+   <item>按地址</item>
+  <item>按距离</item> 
+  <item>按商品</item> 
+    </string-array>
+
+</resources>
