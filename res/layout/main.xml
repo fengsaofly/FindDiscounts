@@ -26,7 +26,7 @@
     </LinearLayout>
 
 	<View
-	    android:id="@layout/ui"
+	    android:id="@layout/home"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:layout_below="@+id/linearLayout1" />

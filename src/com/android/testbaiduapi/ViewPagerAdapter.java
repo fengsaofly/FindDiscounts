@@ -15,7 +15,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 
 import com.android.testbaiduapi.R;
-import com.androidui.UiActivity;
+import com.androidui.HomeLayout;
 
 /**
  * 
@@ -87,7 +87,7 @@ public class ViewPagerAdapter extends PagerAdapter {
 
 	public void goHome() {
 		// 跳转
-		Intent intent = new Intent(activity, UiActivity.class);
+		Intent intent = new Intent(activity, HomeLayout.class);
 		activity.startActivity(intent);
 		activity.finish();
 	}

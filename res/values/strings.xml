@@ -1,16 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="hello">Hello World, JuMeiProject!</string>
+    <string name="app_name"><strong>打折帮</strong></string>
+    <string name="errorTitle"><strong>小美提示</strong></string>
+    <string name="nonetwork"><strong>从服务器请求数据失败.请检查您的网络连接是否可用.</strong></string>
+    <string name="errorContent"><strong>数据获取失败！</strong></string>
+    <string name="timeout"><strong>请求超时，您的网络可能有问题哦~</strong></string>
+    <string name="loadTitle"><strong>正在更新数据</strong></string>
+    <string name="LoadContent"><strong>请稍候……</strong></string>
+    <string name="failedtoadd"><strong>加入购物车失败！</strong></string>
+    <string name="tel"><strong>4008208060</strong></string>
+    <string name="help_tel"><strong>4008208260</strong></string>
+    <string name="search"><strong>搜索内容不能为空</strong></string>
+    <string name="noOrder"><strong>此订单暂无配送信息</strong></string>
+    <string name="retry">重试</string>
+    <string name="know">知道了</string>
+    <string name="cancel">取消</string>
+    <string name="nullpic"><strong>暂时无法获取图片</strong></string>
+    <string name="activity_remote_service_binding">AppDemo4</string>
+    <string name="remote_call_failed">Failure calling remote service</string>
+    <string name="partnerHint">partner</string>
+    <string name="sellerHint">seller</string>
+    <string name="out_trade_noHint">out_trade_no</string>
+    <string name="subjectHint">subject</string>
+    <string name="bodyHint">body</string>
+    <string name="total_feeHint">total_fee</string>
+    <string name="notify_urlHint">notify_url</string>
+    <string name="charsetHint">charset</string>
+    <string name="signTypeHint">signType</string>
+    <string name="confirm_install_hint">安装提示</string>
+    <string name="confirm_install">"为保证您的交易安全，需要您安装支付宝安全支付服务，才能进行付款。
 
-    <string name="app_name">TestBaiduAPI</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
-     <string name="Location">Location</string>
-      <string name="condition">搜索条件</string>
-      
-<string-array name="searchCondition">
-   <item>按地址</item>
-  <item>按距离</item> 
-  <item>按商品</item> 
-    </string-array>
-
+点击确定，立即安装。"</string>
+    <string name="action_settings">menu</string>
+    
+    <string name="Ensure">确定</string>
+    <string name="Cancel">取消</string>
+    <string name="check_sign_failed">您的订单信息已被非法篡改。</string>
+    <string name="shareurl">http://手机客户端下载地址链接.</string>
+    <string name="pull_to_refresh_pull_label">下拉刷新…</string>
+    <string name="pull_to_refresh_pull_up_label">上拉刷新…</string>
+    <string name="pull_to_refresh_release_label">松开刷新…</string>
+    <string name="pull_to_refresh_refreshing_label">正在刷新…</string>
+    <string name="pull_to_refresh_tap_label">点击刷新…</string>
+    <string name="last_update">更新于</string>
+    <string name="obtain_more">获取更多</string>
+    <string name="com_tenpay_android_send_again"><u>重新获取</u></string>
+    <string name="com_tenpay_android_protocol"><u>《一键支付协议》</u></string>
+    <string name="paycenter_used_redpaket_amount_text">%s元红包</string>
+    <string name="paystatus_orderlist_order_id">订单%s</string>
+    <string name="paystatus_payfail_reason">支付失败：%s</string>
+    <string name="paystatus_paymentamount">%s元</string>
+    <string name="mail_name">邮 箱:</string>
+    <string name="user_name">用 户 名:</string>
+    <string name="mima_3">密 码:</string>
+    <string name="zhanghao_2">账 号:</string>
+    <string name="mima_2">密 码:</string>
+    <string name="have_jm_user">已有聚美账号</string>
+    <string name="have_no_jm_user">没有聚美账号</string>
 </resources>

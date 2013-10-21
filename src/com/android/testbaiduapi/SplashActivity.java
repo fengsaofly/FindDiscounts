@@ -1,7 +1,7 @@
 package com.android.testbaiduapi;
 
 import com.android.testbaiduapi.R;
-import com.androidui.UiActivity;
+import com.androidui.HomeLayout;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -82,7 +82,7 @@ public class SplashActivity extends Activity {
 	}
 
 	private void goHome() {
-		Intent intent = new Intent(SplashActivity.this, UiActivity.class);
+		Intent intent = new Intent(SplashActivity.this, HomeLayout.class);
 		SplashActivity.this.startActivity(intent);
 		SplashActivity.this.finish();
 	}
