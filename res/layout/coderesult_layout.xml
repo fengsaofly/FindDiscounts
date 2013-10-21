@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_gravity="center_horizontal" android:id="@id/scanTop" android:background="@drawable/nav_backing_shadow" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:id="@id/scanBack" android:text="返回" style="@style/left_back_TextView" />
+        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="#ff333333" android:layout_gravity="center_horizontal" android:id="@id/scanTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="魔法条码" />
+        <TextView android:textSize="12.0sp" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="right" android:id="@id/right_bt" android:background="@anim/public_goto_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:layout_marginRight="5.0dip" android:text="奖品" />
+    </FrameLayout>
+    <ImageView android:id="@id/image_view" android:background="@drawable/code_background" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="39.0dip" />
+    <ImageView android:id="@id/donghua_view" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="39.0dip" />
+    <RelativeLayout android:id="@id/noprize_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="70.0dip">
+        <TextView android:textSize="16.0dip" android:textColor="#ff8c064b" android:gravity="center_horizontal" android:id="@id/noprize_tx" android:background="@drawable/code_noprize_tx" android:paddingLeft="40.0dip" android:paddingTop="15.0dip" android:paddingRight="40.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="啊哦，什么也没有，下次再试试吧" android:maxLines="2" android:layout_centerHorizontal="true" />
+        <ImageView android:background="@drawable/code_noprize_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_below="@id/noprize_tx" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <include android:id="@id/buttom" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/buttom_layout" />
+</RelativeLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_gravity="center_horizontal" android:id="@id/commentTop" android:background="@drawable/nav_backing_shadow" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:id="@id/commentBack" android:text="返回" style="@style/left_back_TextView" />
+        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="#ff333333" android:layout_gravity="center_horizontal" android:id="@id/commentTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="我的订单" />
+        <TextView android:textSize="12.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="right" android:id="@id/commentGoto" android:background="@anim/public_goto_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:layout_marginRight="7.0dip" android:text="确认收货" />
+    </FrameLayout>
+    <include android:id="@id/buttom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/buttom_layout" />
+    <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/buttom" android:layout_below="@id/commentTop">
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:id="@id/lay1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="10.0dip" android:layout_marginBottom="10.0dip">
+                <RelativeLayout android:paddingTop="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <TextView android:textSize="16.0sp" android:textColor="#ff333333" android:id="@id/text1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="总体评价 ：" />
+                    <RatingBar android:layout_gravity="center_vertical" android:id="@id/all" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="1.0dip" android:numStars="5" android:stepSize="1.0" android:layout_toRightOf="@id/text1" style="@style/order_RatingBar" />
+                </RelativeLayout>
+                <RelativeLayout android:paddingTop="20.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <TextView android:textSize="16.0sp" android:textColor="#ff333333" android:id="@id/text2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="商        品 ：" />
+                    <RatingBar android:layout_gravity="center_vertical" android:id="@id/prd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="1.0dip" android:numStars="5" android:stepSize="1.0" android:layout_toRightOf="@id/text2" style="@style/order_RatingBar" />
+                </RelativeLayout>
+                <RelativeLayout android:paddingTop="20.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <TextView android:textSize="16.0sp" android:textColor="#ff333333" android:id="@id/text3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="物流服务 ：" />
+                    <RatingBar android:layout_gravity="center_vertical" android:id="@id/log" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="1.0dip" android:numStars="5" android:stepSize="1.0" android:layout_toRightOf="@id/text3" style="@style/order_RatingBar" />
+                </RelativeLayout>
+                <RelativeLayout android:paddingTop="20.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <TextView android:textSize="16.0sp" android:textColor="#ff333333" android:id="@id/text4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="客服/售后：" />
+                    <RatingBar android:layout_gravity="center_vertical" android:id="@id/ser" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="1.0dip" android:numStars="5" android:stepSize="1.0" android:layout_toRightOf="@id/text4" style="@style/order_RatingBar" />
+                </RelativeLayout>
+            </LinearLayout>
+            <TextView android:textSize="15.0sp" android:textColor="#ff000000" android:id="@id/comm" android:background="@drawable/shopcar_tab_title_middle" android:paddingLeft="10.0dip" android:paddingTop="5.0dip" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="10.0dip" android:text="填写短评" android:layout_below="@id/lay1" />
+            <EditText android:textSize="13.0sp" android:gravity="top" android:id="@id/cont" android:background="@anim/shape_rounded_rectangle" android:padding="5.0dip" android:layout_width="fill_parent" android:layout_height="180.0dip" android:layout_marginLeft="10.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="10.0dip" android:hint="小美建议您多说说使用后的效果感受，可以使用之后评论哦~建议不少于30字:）" android:layout_below="@id/comm" />
+            <RelativeLayout android:background="@drawable/shopcar_tab_title_middle" android:paddingTop="10.0dip" android:paddingBottom="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_below="@id/cont">
+                <TextView android:textSize="16.0sp" android:textColor="#ffffffff" android:gravity="center" android:id="@id/button" android:background="@anim/login_button_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="50.0dip" android:layout_marginRight="50.0dip" android:text="确认收货" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

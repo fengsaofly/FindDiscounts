@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/view" android:background="@anim/more_selector" android:paddingBottom="10.0dip" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:id="@id/icon_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="15.0dip">
+            <ImageView android:id="@id/icon_img" android:background="@drawable/magic_list_product_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/title_view" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_toRightOf="@id/icon_view">
+            <ImageView android:id="@id/magic_scan_img" android:background="@drawable/magic_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" />
+            <TextView android:textSize="18.0sp" android:textColor="@color/TextColorBlack" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="40.0dip" android:text="的傀儡撒阿的傀儡撒阿的傀儡撒阿的傀儡撒阿的傀儡撒阿的傀儡撒阿的傀儡撒阿" android:maxLines="2" android:minLines="2" android:layout_alignParentLeft="true" android:layout_centerInParent="true" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/property_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:layout_toRightOf="@id/icon_view" android:layout_below="@id/title_view">
+            <RelativeLayout android:id="@id/promocard_view" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:textColor="#ff666666" android:id="@id/promocard_number_final" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="号        码:" />
+                <TextView android:textColor="#ff666666" android:id="@id/promocard_number_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="号码为66666" android:layout_toRightOf="@id/promocard_number_final" />
+                <TextView android:textColor="#ff666666" android:id="@id/promocard_expired_final" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="过期时间:" android:layout_below="@id/promocard_number_final" />
+                <TextView android:textColor="#ff666666" android:id="@id/promocard_expired_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="过期时间为33333" android:layout_toRightOf="@id/promocard_expired_final" android:layout_below="@id/promocard_number_final" />
+                <TextView android:textColor="#ff666666" android:id="@id/promocard_generate_final" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="生成日期:" android:layout_below="@id/promocard_expired_final" />
+                <TextView android:textColor="#ff666666" android:id="@id/promocard_generate_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="生成日期:为9999" android:layout_toRightOf="@id/promocard_generate_final" android:layout_below="@id/promocard_expired_final" />
+            </RelativeLayout>
+            <RelativeLayout android:gravity="bottom" android:id="@id/free_product_view" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+                <TextView android:textColor="#ff666666" android:id="@id/free_product_generate_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="生成日期：：：：" />
+            </RelativeLayout>
+            <RelativeLayout android:gravity="center" android:id="@id/special_product_view" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:textColor="#ff666666" android:id="@id/jumei_price_final" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="聚美价:" />
+                <TextView android:textColor="#ff666666" android:id="@id/jumei_price_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="12222" android:layout_toRightOf="@id/jumei_price_final" />
+                <TextView android:textColor="#ff666666" android:id="@id/magic_or_scan_price_final" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="魔盒价:" android:layout_below="@id/jumei_price_final" />
+                <TextView android:textColor="#ff666666" android:id="@id/magic_or_scan_price_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="22222" android:layout_toRightOf="@id/magic_or_scan_price_final" android:layout_below="@id/jumei_price_final" />
+                <TextView android:textColor="#ff666666" android:id="@id/special_product_discount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:text="8折" android:layout_toRightOf="@id/magic_or_scan_price_value" android:layout_below="@id/jumei_price_final" />
+                <TextView android:textColor="#ff666666" android:id="@id/special_product_generate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="生成日期 " android:layout_below="@id/magic_or_scan_price_final" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/button_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:layout_alignParentRight="true" android:layout_alignParentBottom="true">
+                <TextView android:textSize="16.0sp" android:textColor="@color/TextColorWhite" android:gravity="center" android:id="@id/button_value" android:background="@anim/magic_list_btn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="已过期" />
+            </RelativeLayout>
+        </RelativeLayout>
+        <TextView android:textSize="16.0dip" android:textColor="@color/TextColorBlack" android:id="@id/status_and_number" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="5.0dip" android:text="status" android:layout_below="@id/icon_view" />
+        <TextView android:textSize="16.0dip" android:textColor="@color/TextColorBlack" android:id="@id/expired_time" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="5.0dip" android:text="time" android:layout_below="@id/status_and_number" />
+        <TextView android:textSize="14.0dip" android:textColor="@color/TextColorGray" android:id="@id/time" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="5.0dip" android:text="time" android:layout_below="@id/expired_time" />
+        <ImageView android:id="@id/img_jiantou" android:background="@drawable/triangle" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="20.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        <Button android:textSize="16.0dip" android:textColor="@color/TextColorWhite" android:id="@id/img_hover" android:background="@anim/btn_magic_selector" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="20.0dip" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+</RelativeLayout>

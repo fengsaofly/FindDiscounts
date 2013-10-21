@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_gravity="center_horizontal" android:id="@id/top" android:background="@drawable/nav_backimg" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:id="@id/prdback" android:text="返回" style="@style/left_back_TextView" />
+        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="#ff333333" android:layout_gravity="center_horizontal" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="分类浏览" />
+    </FrameLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/top" android:layout_centerHorizontal="true">
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <TextView android:textSize="16.0sp" android:textColor="#ff7b5a65" android:gravity="center" android:id="@id/classification" android:background="@drawable/classification_focus" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="按分类" android:layout_weight="3.0" />
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <TextView android:textSize="16.0sp" android:textColor="#ff626262" android:gravity="center" android:id="@id/brand" android:background="@drawable/classification_tab_default" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="按品牌" android:layout_weight="3.0" />
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <TextView android:textSize="16.0sp" android:textColor="#ff626262" android:gravity="center" android:id="@id/classification_effect" android:background="@drawable/classification_tab_default" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="按功效" android:layout_weight="3.0" />
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/buttom" android:layout_below="@id/button">
+        <ExpandableListView android:id="@id/classification_expandable_list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:cacheColorHint="#ffffffff" android:groupIndicator="@null" android:layout_alignParentLeft="true" />
+        <ListView android:id="@id/classification_list" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginTop="6.0dip" android:layout_marginRight="5.0dip" android:cacheColorHint="#00000000" android:divider="#ff6b6b6b" android:dividerHeight="0.5dip" />
+    </LinearLayout>
+    <RelativeLayout android:id="@id/brand_show" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_above="@id/buttom" android:layout_below="@id/button">
+        <ListView android:id="@id/brand_list" android:background="#ffffffff" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="10.0dip" android:layout_marginRight="25.0dip" android:cacheColorHint="#00000000" android:divider="#ffffffff" />
+        <TextView android:textSize="30.0sp" android:textColor="#ffffffff" android:gravity="center" android:id="@id/brand_letter" android:background="#ff000000" android:visibility="gone" android:layout_width="40.0dip" android:layout_height="wrap_content" android:layout_centerInParent="true" />
+        <LinearLayout android:gravity="center" android:id="@id/brandZA_layout" android:visibility="gone" android:layout_width="40.0dip" android:layout_height="fill_parent" android:layout_marginBottom="4.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+            <ImageView android:id="@id/brand_AZ" android:background="@drawable/alphabet_item" android:layout_width="wrap_content" android:layout_height="fill_parent" />
+        </LinearLayout>
+        <com.jm.android.jumei.tools.AlphabetListView android:id="@id/list_view" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_alignParentRight="true" android:layout_centerVertical="true"
+          xmlns:android="http://schemas.android.com/apk/res/android" />
+    </RelativeLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/buttom" android:layout_below="@id/button">
+        <GridView android:gravity="center" android:id="@id/classification_effect_gridview" android:background="#ffdcdcdc" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content" android:listSelector="#00ffffff" android:horizontalSpacing="1.0dip" android:verticalSpacing="1.0dip" android:numColumns="3" />
+        <ListView android:id="@id/classification_effect_list" android:padding="1.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginRight="5.0dip" android:cacheColorHint="#00000000" android:divider="#ffb4b4b4" android:dividerHeight="1.0dip" />
+    </LinearLayout>
+    <include android:id="@id/buttom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/buttom_layout" />
+</RelativeLayout>

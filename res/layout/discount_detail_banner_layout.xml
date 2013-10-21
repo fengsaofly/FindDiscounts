@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center_horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_gravity="center_horizontal" android:id="@id/brand_banner" android:background="@drawable/weiboshare_bg" android:layout_width="fill_parent" android:layout_height="144.0dip">
+        <ImageView android:id="@id/brand_background" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+        <ImageView android:background="@drawable/brand_discount_story_background" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+        <ImageView android:id="@id/logo" android:layout_width="60.0dip" android:layout_height="30.0dip" android:layout_marginLeft="10.0dip" android:layout_marginTop="100.0dip" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/my_favourite_layout" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dip" android:layout_marginTop="115.0dip" android:layout_marginRight="10.0dip" android:layout_alignParentRight="true">
+        <TextView android:id="@id/my_favourite_bkg_white" android:background="@drawable/btn_product_detail_fav_off_white" android:paddingRight="5.0dip" android:layout_width="70.0dip" android:layout_height="40.0dip" android:layout_centerVertical="true" />
+        <TextView android:id="@id/my_favourite_bkg" android:background="@drawable/btn_product_detail_fav_bkg" android:visibility="gone" android:layout_width="20.0dip" android:layout_height="20.0dip" android:layout_marginLeft="12.0dip" android:layout_centerVertical="true" />
+        <TextView android:id="@id/my_favourite" android:background="@drawable/btn_product_detail_fav_on" android:paddingRight="5.0dip" android:layout_width="70.0dip" android:layout_height="40.0dip" android:layout_centerVertical="true" />
+        <TextView android:textSize="12.0dip" android:textColor="#ffaa0000" android:id="@id/my_favourite_number" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="34.0dip" android:text="9999+" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/description_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="80.0dip" android:layout_marginTop="100.0dip" android:layout_marginRight="15.0dip" android:layout_toLeftOf="@id/my_favourite_layout">
+        <TextView android:textSize="14.0sp" android:textColor="#ffffffff" android:ellipsize="end" android:layout_gravity="center_horizontal" android:id="@id/description" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lines="2" />
+    </RelativeLayout>
+</RelativeLayout>

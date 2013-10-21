@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="plants_array">
+        <item>物流问题</item>
+        <item>退换货</item>
+        <item>商品问题</item>
+        <item>产品功能</item>
+        <item>赞美</item>
+    </string-array>
+    <string-array name="plants_array_text">
+        <item>乐意聆听对聚美手机客户端的任何建议！</item>
+        <item>可通过客户端的查看物流，或是通过订单号向物流公司查询，如果无法查询到，小美建议您直接拨打客服电话4000-123-888</item>
+        <item>聚美保证100%正品，同时欢迎您对商品选择的宝贵建议。</item>
+        <item>请访问www.jumei.com>我的聚美>办理退货，然后按流程提交即可。如网站无法解决，可拨打客服电话4000-123-888</item>
+        <item>如果您想赞美我们，欢迎到微博、人人、微信与小美互动，非常感谢。</item>
+    </string-array>
+</resources>

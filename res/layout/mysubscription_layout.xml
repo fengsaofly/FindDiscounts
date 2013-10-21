@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_gravity="center_horizontal" android:id="@id/subscriptionTop" android:background="@drawable/nav_backimg" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:id="@id/subscriptionBack" android:text="返回" style="@style/left_back_TextView" />
+        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="#ff333333" android:layout_gravity="center_horizontal" android:id="@id/subscriptionTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="我的订阅" />
+        <TextView android:textSize="12.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="right" android:id="@id/subscriptionGoto" android:background="@anim/public_goto_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:layout_marginRight="5.0dip" android:text="设置" />
+    </FrameLayout>
+    <include android:id="@id/buttom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/buttom_layout" />
+    <RelativeLayout android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/buttom" android:layout_below="@id/subscriptionTop">
+        <RelativeLayout android:id="@id/subLay" android:background="@drawable/sub_top_black" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="12.5sp" android:textColor="#ffffffff" android:id="@id/member" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="您是" android:layout_centerHorizontal="true" />
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/member" android:layout_centerHorizontal="true">
+                <TextView android:textSize="12.5sp" android:textColor="#ffffffff" android:id="@id/text1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="最多可以订阅" />
+                <TextView android:textSize="12.5sp" android:textColor="#ffed145b" android:id="@id/num" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" />
+                <TextView android:textSize="12.5sp" android:textColor="#ffffffff" android:id="@id/text2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="种商品的短信提醒" />
+            </LinearLayout>
+        </RelativeLayout>
+        <ListView android:id="@id/sub_list" android:visibility="visible" android:fadingEdge="none" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content" android:cacheColorHint="#ffffffff" android:divider="#ffb4b4b4" android:dividerHeight="1.0px" android:layout_below="@id/subLay" />
+        <ImageView android:background="#ffb4b4b4" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_below="@id/sub_list" />
+        <RelativeLayout android:id="@id/noInfo" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/subLay">
+            <ImageView android:id="@id/img" android:background="@drawable/subscription" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="50.0dip" android:layout_centerHorizontal="true" />
+            <TextView android:textSize="15.0sp" android:textColor="#ffffffff" android:gravity="center" android:id="@id/gotoBuy" android:background="@anim/login_button_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="60.0dip" android:layout_marginTop="40.0dip" android:layout_marginRight="60.0dip" android:text="去逛逛" android:layout_below="@id/img" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

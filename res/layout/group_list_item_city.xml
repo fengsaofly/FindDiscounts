@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@anim/list_bg_selector" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="16.0dip" android:textColor="#ff000000" android:gravity="center_vertical" android:id="@id/group_list_item_text" android:background="#ffed145b" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <ListView android:id="@id/city_select_listview" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</LinearLayout>

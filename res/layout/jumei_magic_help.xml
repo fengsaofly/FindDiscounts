@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_gravity="center_horizontal" android:id="@id/lay_top" android:background="@drawable/nav_backimg" android:layout_width="fill_parent" android:layout_height="40.0dip">
+        <TextView android:id="@id/left_bt" android:text="返回" style="@style/left_back_TextView" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:layout_centerHorizontal="true">
+            <LinearLayout android:gravity="center" android:id="@id/magic_help" android:background="@drawable/magic_title_left_default" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <ImageView android:id="@id/magic_help_icon" android:background="@drawable/magic_title_left_icon_default" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:id="@id/magic_help_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dip" android:text="魔盒" android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:id="@id/scan_help" android:background="@drawable/magic_title_right_default" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <ImageView android:textColor="#ffffffff" android:id="@id/scan_help_icon" android:background="@drawable/magic_title_right_icon_default" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:id="@id/scan_help_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dip" android:text="扫码" android:singleLine="true" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <include android:gravity="center_horizontal" android:id="@id/buttom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/buttom_layout" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" android:layout_above="@id/buttom" android:layout_below="@id/lay_top">
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="30.0" android:layout_above="@id/tv_version" android:layout_below="@id/top">
+            <WebView android:id="@id/jumeihelpwebView" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

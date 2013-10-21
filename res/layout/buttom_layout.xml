@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center_horizontal" android:background="@drawable/tablebar_bg" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/index" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:layout_gravity="top|center" android:id="@id/indexImg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/indexText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="今日团购" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/category" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/index">
+        <ImageView android:layout_gravity="top|center" android:id="@id/categoryImg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/categoryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="美妆商城" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/search" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/category">
+        <ImageView android:layout_gravity="top|center" android:id="@id/searchImg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/searchText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="名品特卖" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/shopcar" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/search">
+        <ImageView android:layout_gravity="top|center" android:id="@id/shopcarImg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/shopcarText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="购物车" />
+    </FrameLayout>
+    <ImageView android:id="@id/shopcar_num" android:background="#00000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="25.0dip" android:layout_alignTop="@id/shopcar" android:layout_alignRight="@id/shopcar" />
+    <FrameLayout android:id="@id/more" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/shopcar">
+        <ImageView android:layout_gravity="top|center" android:id="@id/moreImg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/moreText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="我的聚美" />
+    </FrameLayout>
+</RelativeLayout>

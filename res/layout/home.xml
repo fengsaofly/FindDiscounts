@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    
+    >
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="50dip" >
+
+   <!--      <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/main_top_left" />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/main_top_title"
+            android:gravity="center"
+            android:textSize="27sp" /> -->
+    	<FrameLayout android:layout_gravity="center_horizontal" android:id="@id/lay_top" android:background="@drawable/nav_backimg" android:layout_width="fill_parent" android:layout_height="wrap_content">
+	        <TextView android:id="@id/left_bt" android:text="返回" style="@style/left_back_TextView" />
+	        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="#ff333333" android:layout_gravity="center_horizontal" android:id="@id/userLonginTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="@string/app_name" />
+	        <TextView android:textSize="12.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="right" android:id="@id/share" android:background="@anim/public_goto_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:layout_marginRight="7.0dip" android:text="分享" />
+    	</FrameLayout>
+    </LinearLayout>
+   
+<TabHost 
+    android:layout_weight="1"
+    android:id="@android:id/tabhost" 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"> 
+ 
+    <LinearLayout 
+        android:orientation="vertical" 
+        android:layout_width="fill_parent" 
+        android:layout_height="fill_parent"> 
+ 
+        <TabWidget android:id="@android:id/tabs" 
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content" 
+            android:gravity="center"
+            android:textAlignment="center"
+        /> 
+      
+        <FrameLayout android:id="@android:id/tabcontent" 
+            android:layout_width="match_parent" 
+            android:layout_height="fill_parent" 
+            
+        /> 
+    </LinearLayout> 
+</TabHost> 
+
+<GridView
+    android:id="@+id/grid2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/title_top"
+    android:gravity="center"
+    android:numColumns="4"
+    android:rowCount="1" >
+    
+</GridView>
+   
+    
+    
+
+
+</LinearLayout>

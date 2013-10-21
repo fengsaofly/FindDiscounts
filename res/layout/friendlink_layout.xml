@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_gravity="center_horizontal" android:id="@id/friendlink_Top" android:background="@drawable/nav_backing_shadow" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:id="@id/friendlink_Back" android:text="返回" style="@style/left_back_TextView" />
+        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="#ff333333" android:layout_gravity="center_horizontal" android:id="@id/friendlink_Title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="精品软件" />
+        <TextView android:textSize="12.0sp" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="right|center" android:id="@id/right_bt" android:background="@anim/public_goto_bg" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dip" android:layout_marginBottom="3.0dip" android:text="刷新" />
+    </FrameLayout>
+    <include android:id="@id/buttom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/buttom_layout" />
+    <ListView android:id="@id/friendlink_list" android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="1.0dip" android:layout_marginTop="1.0dip" android:layout_marginRight="1.0dip" android:cacheColorHint="#ffffffff" android:divider="#ffb4b4b4" android:dividerHeight="1.0dip" android:layout_above="@id/buttom" android:layout_below="@id/friendlink_Top" />
+    <RelativeLayout android:id="@id/friendlink_empty" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/buttom" android:layout_below="@id/friendlink_Top">
+        <ImageView android:id="@id/friendlink_empty_icon" android:background="@null" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
+        <TextView android:gravity="center_horizontal" android:id="@id/friendlink_empty_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="暂时还没有精品软件！" android:layout_below="@id/friendlink_empty_icon" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</RelativeLayout>

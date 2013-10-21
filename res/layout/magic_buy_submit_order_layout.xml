@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/magic_buy_submit_order_layout_bg" android:background="@drawable/loading" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">"
+<FrameLayout android:layout_gravity="center_horizontal" android:id="@id/magic_buy_submit_order_topbar" android:background="@drawable/nav_backing_shadow" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:id="@id/magic_buy_submit_order_scanBack" android:text="返回" style="@style/left_back_TextView" />
+        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="#ff333333" android:layout_gravity="center_horizontal" android:id="@id/magic_buy_submit_order_scanTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="购买特价商品" />
+    </FrameLayout>
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/magic_buy_submit_order_topbar">
+        <LinearLayout android:orientation="vertical" android:id="@id/receive_view" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <RelativeLayout android:background="@drawable/magic_buy_submit_order_top_bg" android:padding="20.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="20.0dip">
+                <TextView android:textSize="18.0dip" android:textColor="@color/TextColorBlack" android:id="@id/product" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="商品" />
+                <TextView android:textSize="18.0dip" android:textColor="@color/TextColorBlack" android:id="@id/magic_buy_submit_order_product_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="54545456456545454564565454545645654545456456" android:layout_toLeftOf="@id/magic_buy_submit_order_product_price" android:layout_below="@id/product" android:layout_alignParentLeft="true" />
+                <TextView android:textSize="18.0dip" android:textColor="@color/TextColorBlack" android:id="@id/magic_buy_submit_order_product_price" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="2.0dip" android:text="1296.00元" android:layout_below="@id/product" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <RelativeLayout android:background="@drawable/magic_buy_submit_order_middle_bg" android:padding="13.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="20.0dip">
+                <RelativeLayout android:id="@id/magic_buy_submit_order_product_info_view" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:paddingBottom="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <TextView android:textSize="18.0dip" android:textColor="@color/TextColorBlack" android:id="@id/magic_buy_submit_order_product_man" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="收货人信息" />
+                    <TextView android:textSize="16.0dip" android:textColor="@color/TextColorGray" android:id="@id/magic_buy_submit_order_product_name_address" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="40.0dip" android:text="请选择收货人地址信息" android:layout_below="@id/magic_buy_submit_order_product_man" />
+                    <ImageView android:background="@drawable/triangle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/magic_buy_submit_order_product_man" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                </RelativeLayout>
+                <TextView android:id="@id/line" android:background="#ff8b8b8b" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_below="@id/magic_buy_submit_order_product_info_view" />
+                <RelativeLayout android:id="@id/magic_buy_submit_order_time_view" android:background="@anim/more_selector" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:paddingBottom="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/line">
+                    <TextView android:textSize="18.0dip" android:textColor="@color/TextColorBlack" android:id="@id/product_time" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="收货时间" />
+                    <TextView android:textSize="16.0dip" android:textColor="@color/TextColorGray" android:id="@id/magic_buy_submit_order_product_time_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="40.0dip" android:text="" android:layout_below="@id/product_time" />
+                    <ImageView android:background="@drawable/triangle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/product_time" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                </RelativeLayout>
+            </RelativeLayout>
+            <RelativeLayout android:gravity="center_vertical" android:orientation="vertical" android:paddingTop="5.0dip" android:paddingBottom="2.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="28.0dip" android:layout_marginLeft="25.0dip">
+                <CheckBox android:textSize="13.0dip" android:textStyle="bold" android:textColor="#ffffffff" android:id="@id/magic_buy_submit_order_cb_pay_Balance" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dip" android:checked="false" android:button="@drawable/jumeicheckboxbutton" android:text="余额支付" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/userinfo_lay_v" android:background="@drawable/magic_buy_submit_order_bottom_bg" android:padding="6.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip">
+                <LinearLayout android:orientation="vertical" android:id="@id/userinfo_lay" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="14.0dip" android:layout_marginTop="1.0dip" android:layout_marginRight="14.0dip" android:layout_marginBottom="10.0dip">
+                    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/userinfolay_Title" android:paddingTop="5.0dip" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <TextView android:textSize="13.0dip" android:textStyle="bold" android:textColor="#ff333333" android:gravity="center_vertical" android:paddingLeft="11.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="支付方式" android:singleLine="true" />
+                    </LinearLayout>
+                    <RelativeLayout android:id="@id/pay_lay2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_marginBottom="15.0dip">
+                        <RadioGroup android:orientation="vertical" android:id="@id/pay_radioGroup" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip">
+                            <RadioButton android:textSize="13.0sp" android:textColor="#ff000000" android:id="@id/pay_ALIWEB" android:layout_width="wrap_content" android:layout_height="24.0dip" android:button="@drawable/jumeiradiobutton" android:text="支付宝网页支付" />
+                            <RadioButton android:textSize="13.0sp" android:textColor="#ff000000" android:id="@id/pay_ALIAPP" android:layout_width="wrap_content" android:layout_height="24.0dip" android:layout_marginTop="10.0dip" android:button="@drawable/jumeiradiobutton" android:text="支付宝客户端支付" />
+                        </RadioGroup>
+                    </RelativeLayout>
+                </LinearLayout>
+            </RelativeLayout>
+            <Button android:textSize="18.0dip" android:textColor="@color/TextColorWhite" android:gravity="center" android:id="@id/magic_buy_submit_order_getproduct" android:background="@anim/login_button_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="20.0dip" android:text="确定领取" />
+        </LinearLayout>
+    </ScrollView>
+    <include android:id="@id/buttom" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/buttom_layout" />
+</RelativeLayout>
