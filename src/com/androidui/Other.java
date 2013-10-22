@@ -59,22 +59,11 @@ public class Other extends Activity implements OnPageChangeListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.content);
-		
-		
-
-		
-		// 初始化Adapter
-//		vpAdapter = new ViewPagerAdapter(views, this);
-		
-		
-		
-	
+		setContentView(R.layout.layout_mid_viewpager);
 		
 		Intent intent =getIntent();
 		
-		
-		
+
 		type = intent.getStringExtra("type");
 		System.out.println("type:  "+type);
 		if(type.equals("discount")){
@@ -91,29 +80,29 @@ public class Other extends Activity implements OnPageChangeListener{
 		}
 		
 		
-		gv = (GridView)findViewById(R.id.grid);
-	       gv.setAdapter(new MyAdapter(this,imgs)); 
-	        //注册监听事件 
-	        gv.setOnItemClickListener(new OnItemClickListener()  //点击六个分类图标中的某一个，便进入displayActivity
-	        { 
-	        
-	            public void onItemClick(AdapterView<?> parent, View v, int position, long id) 
-	            { 
-	               // Toast.makeText(Other.this, "pic" + position, Toast.LENGTH_SHORT).show(); 
-	            	Intent intent = new Intent();
-	            	if(type.equals("discount")){
-	            	intent.putExtra("clickContent", type+"$"+position);
-	            	
-	            	intent.setClass(Other.this, DisplayActivity.class);
-	            	startActivity(intent);
-	            	}
-	            	
-	            	
-	            }
-	       
-	           
-				
-	        });
+//		gv = (GridView)findViewById(R.id.grid);
+//	       gv.setAdapter(new MyAdapter(this,imgs)); 
+//	        //注册监听事件 
+//	        gv.setOnItemClickListener(new OnItemClickListener()  //点击六个分类图标中的某一个，便进入displayActivity
+//	        { 
+//	        
+//	            public void onItemClick(AdapterView<?> parent, View v, int position, long id) 
+//	            { 
+//	               // Toast.makeText(Other.this, "pic" + position, Toast.LENGTH_SHORT).show(); 
+//	            	Intent intent = new Intent();
+//	            	if(type.equals("discount")){
+//	            	intent.putExtra("clickContent", type+"$"+position);
+//	            	
+//	            	intent.setClass(Other.this, DisplayActivity.class);
+//	            	startActivity(intent);
+//	            	}
+//	            	
+//	            	
+//	            }
+//	       
+//	           
+//				
+//	        });
 	        
     	//设置viewPager
 		vp = (ViewPager) findViewById(R.id.middleviewpager);

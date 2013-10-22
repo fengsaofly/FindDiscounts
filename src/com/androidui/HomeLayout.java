@@ -34,8 +34,8 @@ public class HomeLayout extends TabActivity implements TabHost.OnTabChangeListen
          
         setContentView(R.layout.home_layout); 
         //设置ui页面中gridView的adapter
-        grid = (GridView)findViewById(R.id.grid2);
-        grid.setAdapter(new MyGridAdapter(this)); 
+//        grid = (GridView)findViewById(R.id.grid2);
+//        grid.setAdapter(new MyGridAdapter(this)); 
        //设置TabHost的监听器
         mTabHost = getTabHost(); 
         mTabHost.setOnTabChangedListener(this); 

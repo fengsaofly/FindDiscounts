@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:orientation="vertical" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
+  <TabHost 
+    android:layout_weight="1"
+    android:id="@android:id/tabhost" 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"> 
+ 
+    <LinearLayout 
+        android:orientation="vertical" 
+        android:layout_width="fill_parent" 
+        android:layout_height="fill_parent"> 
+ 
+        <TabWidget android:id="@android:id/tabs" 
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content" 
+            android:gravity="center"
+            android:textAlignment="center"
+        /> 
+      
+        <FrameLayout android:id="@android:id/tabcontent" 
+            android:layout_width="match_parent" 
+            android:layout_height="fill_parent" 
+            
+        /> 
+    </LinearLayout> 
+</TabHost> 
     <FrameLayout android:layout_gravity="center_horizontal" android:id="@id/top" android:background="@drawable/nav_backimg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true">
         <TextView android:layout_gravity="right" android:id="@id/action" android:background="@anim/search_btn_bg" android:layout_width="32.0dip" android:layout_height="30.0dip" android:layout_marginTop="5.0dip" android:layout_marginRight="5.0dip" />
         <TextView android:layout_gravity="left|center" android:id="@id/mall_refresh" android:background="@anim/top_right_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="2.0dip" />
@@ -12,14 +37,14 @@
         </LinearLayout>
     </FrameLayout>
     <ScrollView android:orientation="vertical" android:id="@id/scro" android:scrollbars="none" android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="fill_parent" android:measureAllChildren="true" android:fillViewport="true" android:layout_above="@id/buttom" android:layout_below="@id/top">
-        <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+      <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
             <RelativeLayout android:id="@id/search_box_layout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
                 <EditText android:textSize="16.0sp" android:textColor="#ff6b6b6b" android:textColorHint="#ff959595" android:id="@id/search_input" android:background="@drawable/search_editor" android:paddingLeft="30.0dip" android:paddingRight="75.0dip" android:focusable="false" android:focusableInTouchMode="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="商品关键字" android:singleLine="true" android:layout_centerVertical="true" android:inputType="text" android:imeOptions="actionSearch" />
                 <TextView android:layout_gravity="center_vertical" android:id="@id/edit_delete" android:background="@anim/edit_delete_bg" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="70.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
                 <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="right|center" android:id="@id/search_bt" android:background="@anim/btn_selector" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:text="搜索" android:shadowColor="#77000000" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
             </RelativeLayout>
             <RelativeLayout android:id="@id/big_gallery_layout" android:background="@drawable/img_home_shadow" android:layout_width="fill_parent" android:layout_height="134.0dip" android:layout_below="@id/search_box_layout">"
-<com.jm.android.jumei.controls.MyGallery android:gravity="center" android:id="@id/big_gallery" android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="134.0dip" android:unselectedAlpha="1.0" />
+            <include layout="@layout/layout_mid_viewpager" android:id="@+id/home_mid_viewpager"/>
             </RelativeLayout>
             <RelativeLayout android:id="@id/point_layout" android:layout_width="fill_parent" android:layout_height="18.0dip" android:layout_marginTop="-15.0dip" android:layout_below="@id/big_gallery_layout">
                 <ImageView android:id="@id/point" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
@@ -29,14 +54,12 @@
 <GridView android:id="@id/jumei_mall_classification_Gridview" android:layout_width="fill_parent" android:layout_height="wrap_content" android:listSelector="#00ffffff" android:verticalSpacing="10.0dip" android:numColumns="4" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
             </RelativeLayout>
             <RelativeLayout android:gravity="center" android:id="@id/jumei_mall_classification2_Gridview_layout" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:layout_below="@id/jumei_mall_classification_Gridview_layout"> -->
-<com.jm.android.jumei.controls.MallScrollLayout android:gravity="center" android:id="@id/jumei_mall_classification2_gallery" android:layout_width="fill_parent" android:layout_height="128.0dip" />
+<com.discountsbar.controls.MallScrollLayout android:gravity="center" android:id="@id/jumei_mall_classification2_gallery" android:layout_width="fill_parent" android:layout_height="128.0dip" />
             </RelativeLayout>
             <RelativeLayout android:id="@id/xxxxxx" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/jumei_mall_classification2_Gridview_layout">
                 <LinearLayout android:orientation="horizontal" android:gravity="center" android:id="@id/jumei_mall_classification2_point_layout" android:layout_width="fill_parent" android:layout_height="20.0dip" />
             </RelativeLayout>
-            <RelativeLayout android:id="@id/jumei_mall_classification3_gallery_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/xxxxxx">
-                <com.jm.android.jumei.controls.MyGallery android:gravity="center" android:id="@id/jumei_mall_classification3_gallery" android:layout_width="fill_parent" android:layout_height="fill_parent" android:spacing="1.0dip" />
-            </RelativeLayout>
+         
         </RelativeLayout>
     </ScrollView>
     <include android:id="@id/buttom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/buttom_layout" />
