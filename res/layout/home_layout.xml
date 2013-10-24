@@ -76,7 +76,7 @@
             android:src="@drawable/dot" />
     </LinearLayout>
   
-      		</RelativeLayout>"
+      		</RelativeLayout>
             <RelativeLayout android:id="@id/point_layout" android:background="#FF0000" android:layout_width="fill_parent" android:layout_height="18.0dip" android:layout_marginTop="-15.0dip" android:layout_below="@id/home_viewpager_layout">
                 <ImageView android:id="@id/point" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
             </RelativeLayout>
