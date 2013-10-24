@@ -59,27 +59,11 @@ public class Other extends Activity implements OnPageChangeListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.layout_mid_viewpager);
 		
 		Intent intent =getIntent();
-		
 
-		type = intent.getStringExtra("type");
-		System.out.println("type:  "+type);
-		if(type.equals("discount")){
-			 for(int i=0;i<6;i++){
-				 imgs[i]=R.drawable.ic_launcher;
-			 }
-			
-			
-		}
-		else{
-			for(int j=0;j<6;j++){
-				imgs[j]=R.drawable.arrow_toleft;
-			}
-		}
-		
-		
 //		gv = (GridView)findViewById(R.id.grid);
 //	       gv.setAdapter(new MyAdapter(this,imgs)); 
 //	        //注册监听事件 
@@ -209,45 +193,45 @@ public class Other extends Activity implements OnPageChangeListener{
 	}
 	    
 	} 
-	    //自定义适配器 
-	    class MyAdapter extends BaseAdapter{ 
-	        //上下文对象 
-	        private Context context; 
-	        //图片数组 
-	        private Integer[] imgs ;
-	        MyAdapter(Context context, Integer[] imgs){ 
-	            this.context = context; 
-	            this.imgs = imgs;
-	        } 
-	        public int getCount() { 
-	            return imgs.length; 
-	        } 
-	 
-	        public Object getItem(int item) { 
-	            return item; 
-	        } 
-	 
-	        public long getItemId(int id) { 
-	            return id; 
-	        } 
-	         
-	        //创建View方法 
-	        public View getView(int position, View convertView, ViewGroup parent) { 
-	             ImageView imageView; 
-	                if (convertView == null) { 
-	                    imageView = new ImageView(context); 
-	                    imageView.setLayoutParams(new GridView.LayoutParams(100,100));//设置ImageView对象布局 
-	                    imageView.setAdjustViewBounds(false);//设置边界对齐 
-	                    imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);//设置刻度的类型 
-	                    imageView.setPadding(8, 8, 8, 8);//设置间距 
-	                }  
-	                else { 
-	                    imageView = (ImageView) convertView; 
-	                } 
-	                imageView.setImageResource(imgs[position]);//为ImageView设置图片资源 
-	                return imageView; 
-	        } 
-	        
+//	    //自定义适配器 
+//	    class MyAdapter extends BaseAdapter{ 
+//	        //上下文对象 
+//	        private Context context; 
+//	        //图片数组 
+//	        private Integer[] imgs ;
+//	        MyAdapter(Context context, Integer[] imgs){ 
+//	            this.context = context; 
+//	            this.imgs = imgs;
+//	        } 
+//	        public int getCount() { 
+//	            return imgs.length; 
+//	        } 
+//	 
+//	        public Object getItem(int item) { 
+//	            return item; 
+//	        } 
+//	 
+//	        public long getItemId(int id) { 
+//	            return id; 
+//	        } 
+//	         
+//	        //创建View方法 
+//	        public View getView(int position, View convertView, ViewGroup parent) { 
+//	             ImageView imageView; 
+//	                if (convertView == null) { 
+//	                    imageView = new ImageView(context); 
+//	                    imageView.setLayoutParams(new GridView.LayoutParams(100,100));//设置ImageView对象布局 
+//	                    imageView.setAdjustViewBounds(false);//设置边界对齐 
+//	                    imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);//设置刻度的类型 
+//	                    imageView.setPadding(8, 8, 8, 8);//设置间距 
+//	                }  
+//	                else { 
+//	                    imageView = (ImageView) convertView; 
+//	                } 
+//	                imageView.setImageResource(imgs[position]);//为ImageView设置图片资源 
+//	                return imageView; 
+//	        } 
+//	        
 
 
-	}
+//	}

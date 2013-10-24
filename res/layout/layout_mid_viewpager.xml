@@ -6,7 +6,7 @@
     <android.support.v4.view.ViewPager
         android:id="@+id/middleviewpager"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="134dip"
         android:layout_alignParentLeft="true"
          >
 
@@ -16,7 +16,7 @@
         android:id="@+id/ll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/middleviewpager"
+        android:layout_alignBottom="@id/middleviewpager"
         android:layout_alignParentRight="true"
         android:orientation="horizontal" >
 
@@ -52,4 +52,5 @@
             android:padding="15.0dip"
             android:src="@drawable/dot" />
     </LinearLayout>
+  
 </RelativeLayout>
