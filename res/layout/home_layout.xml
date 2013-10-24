@@ -77,14 +77,14 @@
     </LinearLayout>
   
       		</RelativeLayout>
-            <RelativeLayout android:id="@id/point_layout" android:background="#FF0000" android:layout_width="fill_parent" android:layout_height="18.0dip" android:layout_marginTop="-15.0dip" android:layout_below="@id/home_viewpager_layout">
+            <RelativeLayout android:id="@id/point_layout"  android:layout_width="fill_parent" android:layout_height="18.0dip" android:layout_marginTop="-15.0dip" android:layout_below="@id/home_viewpager_layout">
                 <ImageView android:id="@id/point" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
             </RelativeLayout>
             <RelativeLayout android:id="@id/metro" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/point_layout" />           
-            <RelativeLayout android:background="#0000FF" android:gravity="center" android:id="@+id/home_scrollayout" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="300dip" android:layout_marginTop="5.0dip" android:layout_below="@id/metro"> 
-				<ScrollView android:gravity="center" android:id="@+id/home_scrollview" android:layout_width="fill_parent" android:layout_height="wrap_content"/>
+            <RelativeLayout   android:id="@+id/home_listview_layout" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="300dip" android:layout_marginTop="5.0dip" android:layout_below="@id/metro"> 
+				<ListView android:id="@+id/home_listview" android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="1.0dip" android:layout_marginTop="1.0dip" android:layout_marginRight="1.0dip" android:cacheColorHint="#ffffffff" android:divider="#ffb4b4b4" android:dividerHeight="1.0dip"/>
             </RelativeLayout>
-            <RelativeLayout android:id="@id/xxxxxx" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/home_scrollayout">
+            <RelativeLayout android:id="@id/xxxxxx" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/home_listview_layout">
                 <LinearLayout android:orientation="horizontal" android:gravity="center" android:id="@id/jumei_mall_classification2_point_layout" android:layout_width="fill_parent" android:layout_height="20.0dip" />
             </RelativeLayout>         
         </RelativeLayout>

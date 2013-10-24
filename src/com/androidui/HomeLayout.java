@@ -1,14 +1,11 @@
 package com.androidui;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-
-import com.android.testbaiduapi.R;
+import java.util.Map;
 
 import android.app.Activity;
-import android.app.TabActivity;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
@@ -17,20 +14,17 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
 import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.BaseAdapter;
-import android.widget.Button;
+import android.view.Window;
 import android.widget.EditText;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.TabHost;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
+
+import com.android.testbaiduapi.R;
 
 public class HomeLayout extends Activity  { 
     private static final int TAB_INDEX_DISCOUNT= 0; 
@@ -52,6 +46,9 @@ public class HomeLayout extends Activity  {
     TextView edit_delete =null;
     private int currentIndex;
     LinearLayout ll =null;
+    
+    ListView listview = null;
+    
     private TextWatcher textWatcher = new TextWatcher() {
     	  @Override
     	  public void afterTextChanged(Editable s) {
@@ -211,5 +208,36 @@ public class HomeLayout extends Activity  {
 			}
 		}).start();	
   		
-    }
+  		listview = (ListView) findViewById(R.id.home_listview);
+  		SimpleAdapter adapter = new SimpleAdapter(this,getData(),R.layout.friendlink_item,
+				new String[]{"discount_name","discount_description","app_icon"},
+				new int[]{R.id.discount_name,R.id.discount_description,R.id.app_icon});
+  		listview.setAdapter(adapter);
+	}
+
+	private List<Map<String, Object>> getData() {
+		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("discount_name", "G1");
+		map.put("discount_description", "google 1");
+		map.put("app_icon", R.drawable.home_bottom_home);
+		list.add(map);
+
+		map = new HashMap<String, Object>();
+		map.put("discount_name", "G2");
+		map.put("discount_description", "google 2");
+		map.put("app_icon", R.drawable.home_bottom_icon_search);
+		list.add(map);
+
+		map = new HashMap<String, Object>();
+		map.put("discount_name", "G3");
+		map.put("discount_description", "google 3");
+		map.put("app_icon", R.drawable.home_bottom_onehead);
+		list.add(map);
+		
+		return list;
+	}
+  		
+    
 }
