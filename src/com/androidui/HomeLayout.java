@@ -46,7 +46,7 @@ public class HomeLayout extends Activity  {
     	  @Override
     	  public void afterTextChanged(Editable s) {
     	   // TODO Auto-generated method stub
-    	   Log.d("TAG", "afterTextChanged--------------->");
+//    	   Log.d("TAG", "afterTextChanged--------------->");
     	  }
     	  @Override
     	  public void beforeTextChanged(CharSequence s, int start, int count,
