@@ -3,29 +3,24 @@ package com.androidui;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.android.testbaiduapi.R;
-import com.android.testbaiduapi.ViewPagerAdapter;
-
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
+import android.widget.RelativeLayout;
 
-public class Other extends Activity implements OnPageChangeListener{
+import com.android.testbaiduapi.R;
+
+public class HomeViewPager  implements OnPageChangeListener{
+
+
 	GridView gv = null;
 	private Integer[] imgs = new Integer[6];
 	
@@ -39,6 +34,11 @@ public class Other extends Activity implements OnPageChangeListener{
 	private ImageView[] dots;
 	// 记录当前选中位置
 	private int currentIndex;
+	LayoutInflater inflater = null;
+	RelativeLayout rl = null;
+	LinearLayout ll = null;
+	
+	Activity activity = null;
 	 // 切换当前显示的图片  
     private Handler handler = new Handler() {  
         public void handleMessage(android.os.Message msg) { 
@@ -53,16 +53,25 @@ public class Other extends Activity implements OnPageChangeListener{
         	}
         	super.handleMessage(msg);
            // vp.setCurrentItem(currentIndex);// 切换当前显示的图片  
-        };  
+        } 
     };  
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+    public HomeViewPager(Activity activity){
+    	this.activity = activity;
+    	inflater = LayoutInflater.from(activity);
+		rl = (RelativeLayout)inflater.inflate(R.layout.home_layout,null);
+		 ll = (LinearLayout)rl.findViewById(R.id.ll);
+		 vp = (ViewPager)rl.findViewById(R.id.middleviewpager);
+		 
+		 //onCreate(null);
+		 display();
+    }
+	public void display() {
 		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
+//		super.onCreate(savedInstanceState);
 		
-		setContentView(R.layout.layout_mid_viewpager);
+//		setContentView(R.layout.layout_mid_viewpager);
 		
-		Intent intent =getIntent();
+//		Intent intent =getIntent();
 
 //		gv = (GridView)findViewById(R.id.grid);
 //	       gv.setAdapter(new MyAdapter(this,imgs)); 
@@ -89,7 +98,7 @@ public class Other extends Activity implements OnPageChangeListener{
 //	        });
 	        
     	//设置viewPager
-		vp = (ViewPager) findViewById(R.id.middleviewpager);
+//		vp = (ViewPager) rl.findViewById(R.id.middleviewpager); 
 		
 		// 初始化页面
 		initViews(type);
@@ -116,8 +125,8 @@ public class Other extends Activity implements OnPageChangeListener{
 		
 //		this.vp = vp;
 //		this.vpAdapter = vpAdapter;
-		LayoutInflater inflater = LayoutInflater.from(this);
-
+		
+		
 		views = new ArrayList<View>();
 		
 		if(tabValue.equals("discount")){
@@ -138,7 +147,8 @@ public class Other extends Activity implements OnPageChangeListener{
 
 
 		// 初始化Adapter
-		vpAdapter = new MiddleViewPageAdapter(views, this);
+		
+		vpAdapter = new MiddleViewPageAdapter(views, activity);
 		
 		
 		this.vp.setAdapter(this.vpAdapter);
@@ -147,7 +157,7 @@ public class Other extends Activity implements OnPageChangeListener{
 	}
 
 	private void initDots() {
-		LinearLayout ll = (LinearLayout) findViewById(R.id.ll);
+
 
 		dots = new ImageView[views.size()];
 

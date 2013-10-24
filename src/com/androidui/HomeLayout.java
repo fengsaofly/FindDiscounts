@@ -32,11 +32,13 @@ public class HomeLayout extends Activity  {
     private Integer[] imgs = new Integer[6];
    
     GridView gv = null;
+    HomeViewPager viewpager  =null;
 //    private TabHost mTabHost; 
     TextView title = null; 
     String type = "discount";//判断tab
 
     RelativeLayout search_box_layout = null;
+    HomeViewPager viewPager = null;
     TextView searchBtn = null;
     EditText search_edit = null;
     TextView edit_delete =null;
@@ -65,6 +67,8 @@ public class HomeLayout extends Activity  {
     	   
     	  }
     	};
+    	
+    	
     @Override 
     public void onCreate(Bundle savedInstanceState) { 
         super.onCreate(savedInstanceState); 
@@ -85,6 +89,8 @@ public class HomeLayout extends Activity  {
         title = (TextView)findViewById(R.id.title);
         title.setText(R.string.app_name);
         
+//        viewPager = (ViewPager)findViewById(R.id.middleviewpager);
+        viewpager = new HomeViewPager(HomeLayout.this);
        
         // Setup the tabs 
 //        setupDiscountTab(); 
