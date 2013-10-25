@@ -67,7 +67,7 @@ public class DisplayActivity extends Activity{
 			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 					long arg3) {
 				// TODO Auto-generated method stub
-				startActivity(new Intent(DisplayActivity.this,DiscountDetailActivity.class));
+				startActivity(new Intent(DisplayActivity.this,DiscountInfoActivity.class));
 			}
 		});
 		

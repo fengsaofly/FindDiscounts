@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Paint.Join;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
@@ -16,6 +18,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -213,6 +217,24 @@ public class HomeLayout extends Activity  {
 				new String[]{"discount_name","discount_description","app_icon"},
 				new int[]{R.id.discount_name,R.id.discount_description,R.id.app_icon});
   		listview.setAdapter(adapter);
+  		listview.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
+					long arg3) {
+				// TODO Auto-generated method stub
+				Intent intent  = new Intent();
+				intent.setClass(HomeLayout.this,DiscountInfoActivity.class);
+				float price = 10.90f;
+				Bundle b = new Bundle();
+				b.putFloatArray("value", new float[]{(float)position,price});
+//				intent.putExtra("position", new Float[]{(float)position,price});
+				 
+				intent.putExtra("position", b);
+				startActivity(intent);
+				
+			}
+		});
 	}
 
 	private List<Map<String, Object>> getData() {

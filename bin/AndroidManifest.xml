@@ -60,7 +60,7 @@
         <activity android:name="com.androidui.HomeLayout" />
          <activity android:name="com.androidui.DisplayActivity" />
         <activity android:name="com.androidui.Other" />
-         <activity android:name="com.androidui.DiscountDetailActivity" />
+         <activity android:name="com.androidui.DiscountInfoActivity" />
         
        <service
             android:name="com.baidu.location.f"
