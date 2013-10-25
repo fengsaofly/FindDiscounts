@@ -111,6 +111,8 @@ public class HomeLayout extends Activity  {
         setContentView(R.layout.home_layout); 
 
         initial();
+        
+  
 
     }
     
@@ -275,6 +277,7 @@ public class HomeLayout extends Activity  {
 				
 			}
 		});
+ 
 	}
 
 	private List<Map<String, Object>> getData() {

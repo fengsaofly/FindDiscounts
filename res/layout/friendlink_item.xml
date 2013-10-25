@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:id="@id/scan_item_layout" android:background="@anim/list_bg_selector" android:layout_width="fill_parent" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android">
-  
     <RelativeLayout android:id="@id/friendlink_lay1" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginRight="5.0dip">
         <RelativeLayout android:id="@id/app_down_lay" android:layout_width="60.0dip" android:layout_height="30.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true">
             <TextView android:id="@id/app_down" android:background="@anim/login_button_bg" android:layout_width="fill_parent" android:layout_height="fill_parent" />
