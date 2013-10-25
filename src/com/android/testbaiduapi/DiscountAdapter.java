@@ -7,6 +7,7 @@ import java.util.Map;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -177,6 +178,10 @@ public class DiscountAdapter extends BaseAdapter{
 	    		Button scan;//查看按钮
 	    		Button daohang;//导航按钮
 	    		TextView address;
+	    		private void print() {
+					// TODO Auto-generated method stub
+
+				}
 	    	}
 	    }
 	    
