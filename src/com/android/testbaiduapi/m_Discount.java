@@ -1,6 +1,6 @@
 package com.android.testbaiduapi;
 
-public  class m_Discount{  //打折信息
+public  class m_Discount  {  //打折信息
 	int m_discount_id;
     String m_discount_good;
     int m_discount_shop;

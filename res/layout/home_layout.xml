@@ -25,8 +25,77 @@
                 <TextView android:layout_gravity="center_vertical" android:id="@id/edit_delete" android:background="@anim/edit_delete_bg" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="70.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
                 <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="right|center" android:id="@id/search_bt" android:background="@anim/btn_selector" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:text="搜索" android:shadowColor="#77000000" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
             </RelativeLayout>
+            
+            
+            
+            
+             <LinearLayout 
+      
+       android:visibility="gone"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/search_box_layout"
+        android:layout_above="@id/scro"
+        android:layout_alignParentLeft="true"
+        android:orientation="vertical"
+        android:id="@+id/hide"
+        >
+        <LinearLayout android:id="@+id/ll1" android:layout_width="fill_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+           <FrameLayout android:id="@id/index" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:layout_gravity="top|center" android:src="@drawable/public_toolbar_icon0" android:id="@id/indexImg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/indexText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="今日团购" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/category" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/index">
+        <ImageView android:layout_gravity="top|center" android:src="@drawable/public_toolbar_icon1" android:id="@id/categoryImg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/categoryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="美妆商城" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/search" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/category">
+        <ImageView android:layout_gravity="top|center" android:src="@drawable/public_toolbar_icon2" android:id="@id/searchImg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/searchText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="名品特卖" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/shopcar" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/search">
+        <ImageView android:layout_gravity="top|center" android:src="@drawable/public_toolbar_icon3" android:id="@id/shopcarImg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/shopcarText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="购物车" />
+    </FrameLayout>
+    
+    <FrameLayout android:id="@id/more" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/shopcar">
+        <ImageView android:layout_gravity="top|center" android:src="@drawable/public_toolbar_icon4" android:id="@id/moreImg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/moreText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="我的聚美" />
+    </FrameLayout>
+    
+    </LinearLayout>
+    
+         <LinearLayout android:id="@+id/ll2" android:layout_width="fill_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+           <FrameLayout android:id="@id/index" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:layout_gravity="top|center" android:src="@drawable/public_toolbar_icon0" android:id="@id/indexImg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/indexText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="今日团购" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/category" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/index">
+        <ImageView android:layout_gravity="top|center" android:src="@drawable/public_toolbar_icon1" android:id="@id/categoryImg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/categoryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="美妆商城" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/search" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/category">
+        <ImageView android:layout_gravity="top|center" android:src="@drawable/public_toolbar_icon2" android:id="@id/searchImg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/searchText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="名品特卖" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/shopcar" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/search">
+        <ImageView android:layout_gravity="top|center" android:src="@drawable/public_toolbar_icon3" android:id="@id/shopcarImg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/shopcarText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="购物车" />
+    </FrameLayout>
+    
+    <FrameLayout android:id="@id/more" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/shopcar">
+        <ImageView android:layout_gravity="top|center" android:src="@drawable/public_toolbar_icon4" android:id="@id/moreImg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/moreText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="我的聚美" />
+    </FrameLayout>
+    
+    </LinearLayout>
+    </LinearLayout>
 
-            <RelativeLayout android:id="@+id/home_viewpager_layout" android:layout_width="wrap_content" android:layout_height="134dip"  android:layout_below="@id/search_box_layout" >
+            <RelativeLayout android:id="@+id/home_viewpager_layout" android:layout_width="wrap_content" android:layout_height="134dip"  android:layout_below="@id/hide" >
       		   <android.support.v4.view.ViewPager
         android:id="@+id/middleviewpager"
         android:layout_width="match_parent"

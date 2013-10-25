@@ -14,6 +14,7 @@
             </FrameLayout>
             <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="#ff333333" android:id="@+id/discount_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="10.0dip" android:text="应用名称" android:singleLine="true" android:layout_toRightOf="@id/image" />
             <TextView android:textSize="13.0sp" android:textColor="#ff333333" android:id="@+id/discount_description" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" android:text="应用的描述" android:maxLines="3" android:layout_toRightOf="@id/image" android:layout_below="@id/discount_name" />
+            <TextView android:textSize="13.0sp" android:textColor="#ff333333" android:id="@+id/discount_distance" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip"  android:maxLines="3" android:layout_toRightOf="@id/discount_name" />
         </RelativeLayout>
     </RelativeLayout>
 </RelativeLayout>
