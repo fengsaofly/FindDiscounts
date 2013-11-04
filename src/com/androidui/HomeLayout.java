@@ -20,8 +20,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
-import android.graphics.Paint.Join;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
@@ -41,20 +41,28 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
-
-
-import com.android.testbaiduapi.LocationOverlayDemo;
+import com.android.testbaiduapi.GlobalParameter;
 import com.android.testbaiduapi.R;
-import com.baidu.mapapi.cloud.CustomPoiInfo;
-import com.baidu.platform.comapi.basestruct.GeoPoint;
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.baidu.mapapi.BMapManager;
+import com.baidu.mapapi.MKGeneralListener;
+import com.baidu.mapapi.map.LocationData;
+import com.baidu.mapapi.map.MKEvent;
 
 public class HomeLayout extends Activity  { 
     private static final int TAB_INDEX_DISCOUNT= 0; 
     private static final int TAB_INDEX_SHOP = 1; 
     
     private Integer[] imgs = new Integer[6];
-   
+    //定位相关：
+	public MyLocationListenner myListener;
+	LocationClient mLocClient;
+	LocationData locData;
     
     private ImageView[] dots;
 //    private TabHost mTabHost; 
@@ -69,11 +77,14 @@ public class HomeLayout extends Activity  {
     EditText search_edit = null;
     TextView edit_delete =null;
     private int currentIndex;
+    BMapManager mBMapManager = null;
     LinearLayout ll =null;
     List<Map<String, Object>> list;
     SimpleAdapter adapter = null;
     int clickTime = 0; 
     JSONArray numberList = null;
+    boolean firstFlag=true;  //第一次定位
+    private static double EARTH_RADIUS = 6378137.0;  
     private static final String Get_URL="http://api.map.baidu.com/geodata/v2/poi/list?geotable_id=31937&ak=C8e5f84b57555c9e0478c87526b878c0";//get请求url,从lbs上更新数据并显示到地图上
     private TextWatcher textWatcher = new TextWatcher() {
     	  @Override
@@ -107,16 +118,63 @@ public class HomeLayout extends Activity  {
         super.onCreate(savedInstanceState); 
  
         requestWindowFeature(Window.FEATURE_NO_TITLE); 
+        System.out.println("Oncreate____________");
          
         setContentView(R.layout.home_layout); 
-
+        initEngineManager(HomeLayout.this);
         initial();
         
-  
 
     }
-    
-    
+    @Override
+    protected void onDestroy() {
+    	// TODO Auto-generated method stub
+    	super.onDestroy();
+    	 mLocClient.stop();
+    	
+    	 mLocClient.unRegisterLocationListener( myListener );
+    }
+    public void initEngineManager(Context context) {
+        if (mBMapManager == null) {
+            mBMapManager = new BMapManager(context);
+        }
+
+        if (!mBMapManager.init(GlobalParameter.appKey,new MyGeneralListener())) {
+            Toast.makeText(HomeLayout.this, 
+                    "BMapManager  初始化错误!", Toast.LENGTH_LONG).show();
+        }
+	}
+	
+	// 常用事件监听，用来处理通常的网络错误，授权验证错误等
+    static class MyGeneralListener implements MKGeneralListener {
+        
+        @Override
+        public void onGetNetworkState(int iError) {
+            if (iError == MKEvent.ERROR_NETWORK_CONNECT) {
+//                Toast.makeText(LocationOverlayDemo.this, "您的网络出错啦！",
+//                    Toast.LENGTH_LONG).show();
+                
+                      System.out.println("BMapManager  初始化错误!");  
+            }
+            else if (iError == MKEvent.ERROR_NETWORK_DATA) {
+//                Toast.makeText(LocationOverlayDemo.getInstance().getApplicationContext(), "输入正确的检索条件！",
+//                        Toast.LENGTH_LONG).show();
+            	System.out.println("输入正确的检索条件！");  
+            }
+        }
+
+        @Override
+        public void onGetPermissionState(int iError) {
+            if (iError ==  MKEvent.ERROR_PERMISSION_DENIED) {
+                //授权Key错误：
+//                Toast.makeText(LocationOverlayDemo.getInstance().getApplicationContext(), 
+//                        "请在 DemoApplication.java文件输入正确的授权Key！", Toast.LENGTH_LONG).show();
+//                LocationOverlayDemo.getInstance().m_bKeyRight = false;
+            	System.out.println("不正确的授权Key！");  
+            }
+        }
+    }
+  
     private Handler handler = new Handler() {  
         public void handleMessage(android.os.Message msg) { 
         	switch(msg.what){
@@ -127,11 +185,29 @@ public class HomeLayout extends Activity  {
 				vp.setCurrentItem(next);
 				setCurrentDot(next);
         		break;
+        	case 2:
+        		 adapter.notifyDataSetChanged();
+        		 break;
         	}
         	super.handleMessage(msg);
            // vp.setCurrentItem(currentIndex);// 切换当前显示的图片  
         } 
-    };  
+    }; 
+    
+    public  double calculateDistance(double lat_a, double lng_a, double lat_b, double lng_b) { //根据两点的精度和纬度计算距离
+	       double radLat1 = (lat_a * Math.PI / 180.0);
+	       double radLat2 = (lat_b * Math.PI / 180.0);
+	       double a = radLat1 - radLat2;
+	       double b = (lng_a - lng_b) * Math.PI / 180.0;
+	       double s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a / 2), 2)
+	              + Math.cos(radLat1) * Math.cos(radLat2)
+	              * Math.pow(Math.sin(b / 2), 2)));
+	       s = s * EARTH_RADIUS;
+	       s = Math.round(s * 10000) / 10000;
+	       System.out.println("距离:  "+""+s);
+	       return s;
+	    }
+	
     
     private void initDots() {
 
@@ -161,8 +237,19 @@ public class HomeLayout extends Activity  {
 		
 	}
     public void initial(){
-    	
-    	  getDiscountInformation();
+    	myListener = new MyLocationListenner();
+        mLocClient = new LocationClient(this);
+        locData = new LocationData();
+        mLocClient.registerLocationListener( myListener );
+        LocationClientOption option = new LocationClientOption();
+       // option.setOpenGps(true);//打开gps
+        option.setCoorType("bd09ll");     //设置坐标类型
+        option.setScanSpan(5000);
+        mLocClient.setLocOption(option);
+        mLocClient.start();
+       
+       // mLocClient.requestLocation();
+    	//  getDiscountInformation();
     	  list = new ArrayList<Map<String, Object>>();
     	  ll = (LinearLayout)findViewById(R.id.ll);
     	  vp = (ViewPager)findViewById(R.id.middleviewpager);
@@ -258,8 +345,7 @@ public class HomeLayout extends Activity  {
 				new String[]{"discount_name","discount_description","discount_distance","app_icon"},
 				new int[]{R.id.discount_name,R.id.discount_description,R.id.discount_distance,R.id.app_icon});
   		listview.setAdapter(adapter);
-
-  		listview.setOnItemClickListener(new OnItemClickListener() {
+		listview.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
@@ -277,39 +363,51 @@ public class HomeLayout extends Activity  {
 				
 			}
 		});
- 
-	}
-
-	private List<Map<String, Object>> getData() {
-		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("discount_name", "G1");
-		map.put("discount_description", "google 1");
-		map.put("app_icon", R.drawable.home_bottom_home);
-		list.add(map);
-
-		map = new HashMap<String, Object>();
-		map.put("discount_name", "G2");
-		map.put("discount_description", "google 2");
-		map.put("app_icon", R.drawable.home_bottom_icon_search);
-		list.add(map);
-
-		map = new HashMap<String, Object>();
-		map.put("discount_name", "G3");
-		map.put("discount_description", "google 3");
-		map.put("app_icon", R.drawable.home_bottom_onehead);
-		list.add(map);
-		
-		return list;
-	}
-
   		
-   
+    }
     
     
  
-    
+    public class MyLocationListenner implements BDLocationListener {
+    	
+        @Override
+        public void onReceiveLocation(BDLocation location) {
+        	System.out.println("55555555555555555555");
+            if (location == null)
+                return ;
+            System.out.println("333");
+            double tempLat = 0;
+            double tempLon = 0;
+            
+            
+            locData.latitude = location.getLatitude();
+            locData.longitude = location.getLongitude();
+            
+            if((locData.latitude!=tempLat||locData.longitude!=tempLon)&&firstFlag){
+            	tempLat=locData.latitude;
+            	tempLon=locData.longitude;
+            	firstFlag = false;
+            	getDiscountInformation();
+            }
+            //如果不显示定位精度圈，将accuracy赋值为0即可
+            System.out.println(" locData.latitude:  "+ locData.latitude);
+            System.out.println("locData.longitude:  "+locData.longitude);
+            locData.accuracy = location.getRadius();
+            System.out.println("我的精度为: "+location.getRadius());
+            locData.direction = location.getDerect();
+            //更新定位数据
+           
+           
+      
+           
+        }
+        
+        public void onReceivePoi(BDLocation poiLocation) {
+            if (poiLocation == null){
+                return ;
+            }
+        }
+    }
     
  public void getDiscountInformation(){
     	
@@ -343,40 +441,40 @@ public class HomeLayout extends Activity  {
 		                 numberList = demoJson.getJSONArray("pois");
 		                 list.clear();
 
-
+		                
+		            	 System.out.println("得到的经纬度为："+locData.latitude+locData.longitude+"-----------");
 
 		                for(int i=0; i<numberList.length(); i++){
 
 		                      //获取数组中的数组
 		                	Map<String, Object> map = new HashMap<String, Object>();
 		                	String name = numberList.getJSONObject(i).get("title").toString();
-		                	String description = numberList.getJSONObject(i).get("tags").toString();
+		                	String description = 
+		                			numberList.getJSONObject(i).get("tags").toString();
 		                	if(name.length()>8){
 		                		name = name.substring(0, 6)+"...";
 		                	}
 		                	if(description.length()>11){
 		                		description = description.substring(0, 9)+"...";
 		                	}
-		            		map.put("discount_name", name);
-		            		map.put("discount_description", description);
-		            		map.put("discount_distance", "1000米");
-		            		map.put("app_icon", R.drawable.home_bottom_home);
-		            		list.add(map);
+		            	
 		                	  String latAndLog = numberList.getJSONObject(i).get("location").toString().replace("[", "").replace("]", ""); 
 		                      String latitude = latAndLog.split(",")[1];
 		                      String logitude = latAndLog.split(",")[0];
-		                      System.out.println("title:"+numberList.getJSONObject(i).get("title"));
-		                	  System.out.println("location:"+numberList.getJSONObject(i).get("location"));
-		                	  System.out.println("tags:"+numberList.getJSONObject(i).get("tags"));
-		                      System.out.println("address:"+numberList.getJSONObject(i).get("address"));
-		                      System.out.println("latitude:"+latitude);
-		                      System.out.println("logitude:"+logitude);
-		                      System.out.println("discountsName:"+"");
-		                     
+		                    
+		                  	map.put("discount_name", name);
+		                  
+		            		map.put("discount_description", description);
+		            		
+		            		map.put("discount_distance", ""+calculateDistance(locData.latitude,locData.longitude,Double.parseDouble(latitude),Double.parseDouble(logitude))+"米");
+		            		map.put("app_icon", R.drawable.home_bottom_home);
+		            		list.add(map);
+		                   
 		                      
 		                }
+		                handler.sendEmptyMessage(2);
 		                
-		                adapter.notifyDataSetChanged();
+		               
 		                
 		            
 		            }

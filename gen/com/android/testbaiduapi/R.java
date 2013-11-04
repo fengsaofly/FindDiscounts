@@ -870,7 +870,7 @@ public final class R {
         public static final int about_icon=0x7f0801c3;
         public static final int account_balance=0x7f080432;
         public static final int action=0x7f0801da;
-        public static final int action_settings=0x7f0805cc;
+        public static final int action_settings=0x7f0805cb;
         public static final int activ_buy_num_layout=0x7f080049;
         public static final int activ_goods_buy_num=0x7f08004d;
         public static final int activ_goods_discount=0x7f08004a;
@@ -1602,7 +1602,6 @@ public final class R {
         public static final int member_dialog=0x7f08030d;
         public static final int member_help=0x7f08030e;
         public static final int member_layout=0x7f08030a;
-        public static final int menu_settings=0x7f0805cb;
         public static final int metro=0x7f0801e6;
         public static final int middle_bt=0x7f080534;
         public static final int middleviewpager=0x7f0805bd;
@@ -2401,8 +2400,7 @@ public final class R {
         public static final int what_new_two=0x7f03004f;
     }
     public static final class menu {
-        public static final int activity_main=0x7f0b0000;
-        public static final int main=0x7f0b0001;
+        public static final int main=0x7f0b0000;
     }
     public static final class string {
         public static final int Cancel=0x7f090020;
