@@ -28,7 +28,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
-class DownloadBitmap extends AsyncTask<Void, Integer, Void>{
+public class DownloadBitmap extends AsyncTask<Void, Integer, Void>{
 	private ProgressDialog dialog;
 	private Context mContext;
 	private Activity myActivity;
@@ -49,19 +49,19 @@ class DownloadBitmap extends AsyncTask<Void, Integer, Void>{
     protected void onPreExecute() {
         // TODO Auto-generated method stub
         super.onPreExecute();
-        dialog = new ProgressDialog(myActivity);
-		
-		dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-		
-		dialog.setTitle("FindDiscount");
-		
-		dialog.setMessage("正在从网络获取数据,请等待");
-		
-		dialog.setIcon(android.R.drawable.ic_dialog_alert);
-		
-		dialog.setCancelable(false);
-		// 显示
-		dialog.show();
+//        dialog = new ProgressDialog(myActivity);
+//		
+//		dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+//		
+//		dialog.setTitle("FindDiscount");
+//		
+//		dialog.setMessage("正在从网络获取数据,请等待");
+//		
+//		dialog.setIcon(android.R.drawable.ic_dialog_alert);
+//		
+//		dialog.setCancelable(false);
+//		// 显示
+//		dialog.show();
 		
         
       
@@ -71,11 +71,11 @@ class DownloadBitmap extends AsyncTask<Void, Integer, Void>{
         // TODO Auto-generated method stub
         super.onPostExecute(result);
         Message msg = handler.obtainMessage();
-        msg.what =4;
+        msg.what =2;
         msg.obj = goodsPicPaths;
         handler.sendMessage(msg);
         System.out.println("下载完成");
-        dialog.dismiss(); //Hide Progress Dialog else use dismiss() to dismiss the dialog
+     //   dialog.dismiss(); //Hide Progress Dialog else use dismiss() to dismiss the dialog
     }
     @Override
     protected Void doInBackground(Void... params) {

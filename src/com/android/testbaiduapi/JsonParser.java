@@ -8,7 +8,7 @@ public class JsonParser {
 	JsonParser(List<m_Shop> shops){
 		this.shops = shops;
 	}
-	JsonParser(){
+	public JsonParser(){
 		shops = new ArrayList<m_Shop>();
 	}
 	

@@ -44,7 +44,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.testbaiduapi.GlobalParameter;
+import com.android.testbaiduapi.JsonParser;
 import com.android.testbaiduapi.R;
+import com.android.testbaiduapi.m_Discount;
+import com.android.testbaiduapi.m_Shop;
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
@@ -63,7 +66,7 @@ public class HomeLayout extends Activity  {
 	public MyLocationListenner myListener;
 	LocationClient mLocClient;
 	LocationData locData;
-    
+	JsonParser jp = new JsonParser(); //存储结果的JsonParser
     private ImageView[] dots;
 //    private TabHost mTabHost; 
     TextView title = null; 
@@ -85,6 +88,7 @@ public class HomeLayout extends Activity  {
     JSONArray numberList = null;
     boolean firstFlag=true;  //第一次定位
     private static double EARTH_RADIUS = 6378137.0;  
+    
     private static final String Get_URL="http://api.map.baidu.com/geodata/v2/poi/list?geotable_id=31937&ak=C8e5f84b57555c9e0478c87526b878c0";//get请求url,从lbs上更新数据并显示到地图上
     private TextWatcher textWatcher = new TextWatcher() {
     	  @Override
@@ -119,7 +123,7 @@ public class HomeLayout extends Activity  {
  
         requestWindowFeature(Window.FEATURE_NO_TITLE); 
         System.out.println("Oncreate____________");
-         
+ 
         setContentView(R.layout.home_layout); 
         initEngineManager(HomeLayout.this);
         initial();
@@ -353,12 +357,18 @@ public class HomeLayout extends Activity  {
 				// TODO Auto-generated method stub
 				Intent intent  = new Intent();
 				intent.setClass(HomeLayout.this,DiscountInfoActivity.class);
-				float price = 10.90f;
-				Bundle b = new Bundle();
-				b.putFloatArray("value", new float[]{(float)position,price});
-//				intent.putExtra("position", new Float[]{(float)position,price});
-				 
-				intent.putExtra("position", b);
+				
+				m_Shop ms = jp.getShops().get(position);  
+				//List<m_Discount> md = jp.getShops().get(position).getDiscounts();
+		
+			        
+			        Bundle mBundle = new Bundle();  
+			        mBundle.putParcelable("shop",ms);  
+			       // mBundle.putParcelableArrayList("list",md);
+			      //  intent.putParcelableArrayListExtra("list", md);
+			      
+			        intent.putExtras(mBundle);  
+
 				startActivity(intent);
 				
 			}
@@ -387,7 +397,8 @@ public class HomeLayout extends Activity  {
             	tempLat=locData.latitude;
             	tempLon=locData.longitude;
             	firstFlag = false;
-            	getDiscountInformation();
+            	//getDiscountInformation();
+            	queryShops();
             }
             //如果不显示定位精度圈，将accuracy赋值为0即可
             System.out.println(" locData.latitude:  "+ locData.latitude);
@@ -409,23 +420,22 @@ public class HomeLayout extends Activity  {
         }
     }
     
- public void getDiscountInformation(){
-    	
-    	new Thread(new Runnable() {
+
+    
+    public void queryShops(){ //查询附近或搜索出来的打折商家信息
+		new Thread(new Runnable() {
 			
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
 				
-		    	
-		    	System.out.println("进入getDiscountInformation函数");
+				String queryUrl = "http://discountsbar.sinaapp.com/discounts/getInfo?ak="+GlobalParameter.serverKey+"&longitude="+locData.longitude
+						+"&latitude="+locData.latitude+"&radius="+"100000";
+				
 		    	 String resultStr="";
 		    	 HttpClient httpclient = new DefaultHttpClient();
-		    	 List<NameValuePair> nameValuePairs =new ArrayList<NameValuePair>();
-		    	 //?geotable_id=31937&ak=C8e5f84b57555c9e0478c87526b878c0
-		         nameValuePairs.add(new BasicNameValuePair("geotable_id","31937"));
-		         nameValuePairs.add(new BasicNameValuePair("ak",com.android.testbaiduapi.GlobalParameter.browerKey));
-		         HttpGet httpget = new HttpGet(Get_URL);
+		         HttpGet httpget = new HttpGet(queryUrl
+		    	 );
 		         try {
 		        	 //httpget.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 		            HttpResponse response; 
@@ -433,52 +443,115 @@ public class HomeLayout extends Activity  {
 		            if (response.getStatusLine().getStatusCode() == 200) {
 		                // 获取返回的数据
 		            	resultStr = EntityUtils.toString(response.getEntity(), "UTF-8");
-		            	System.out.println("结果："+resultStr+"\n\n\n\n"+"--------------");
-		                Log.i("HttpGet", "HttpGet方式请求成功，返回数据如下：");
-		              //  System.out.println("请求结果:"+resultStr.toString());
+		                Log.i("HttpGet", "搜索请求成功，返回数据如下：");
+		                System.out.println("请求结果:"+resultStr.toString());
 		                JSONObject demoJson = new JSONObject(resultStr);
+		                String numList = demoJson.get("shopids").toString();
+		                String a[] = numList.split(" ");
+//		                System.out
+//								.println("a[0]:"+a[0]+"a[1]:"+a[1]);
+		                int size = a.length;
+		                System.out
+								.println("size:"+size);
+		               // String a[] = numList.getJSONObject(0).getString("ids").split(" ");
 
-		                 numberList = demoJson.getJSONArray("pois");
-		                 list.clear();
-
+		                JSONArray numberList = demoJson.getJSONArray("content");
 		                
-		            	 System.out.println("得到的经纬度为："+locData.latitude+locData.longitude+"-----------");
-
+		                m_Discount d;
+		                m_Shop s;
+		                List<List<m_Discount>> ds = new ArrayList<List<m_Discount>>(size);
+		                for(int k=0;k<size;k++){
+		                	ds.add(new ArrayList<m_Discount>());
+		                }
+		                List<m_Shop> ss = new ArrayList<m_Shop>(size);
+		                for(int k=0;k<size;k++){
+		                	ss.add(new m_Shop());
+		                }
+		                
 		                for(int i=0; i<numberList.length(); i++){
+		                	
 
 		                      //获取数组中的数组
-		                	Map<String, Object> map = new HashMap<String, Object>();
-		                	String name = numberList.getJSONObject(i).get("title").toString();
-		                	String description = 
-		                			numberList.getJSONObject(i).get("tags").toString();
-		                	if(name.length()>8){
-		                		name = name.substring(0, 6)+"...";
-		                	}
-		                	if(description.length()>11){
-		                		description = description.substring(0, 9)+"...";
-		                	}
-		            	
-		                	  String latAndLog = numberList.getJSONObject(i).get("location").toString().replace("[", "").replace("]", ""); 
-		                      String latitude = latAndLog.split(",")[1];
-		                      String logitude = latAndLog.split(",")[0];
-		                    
-		                  	map.put("discount_name", name);
-		                  
-		            		map.put("discount_description", description);
-		            		
-		            		map.put("discount_distance", ""+calculateDistance(locData.latitude,locData.longitude,Double.parseDouble(latitude),Double.parseDouble(logitude))+"米");
-		            		map.put("app_icon", R.drawable.home_bottom_home);
-		            		list.add(map);
-		                   
+		                	int m_discount_id = numberList.getJSONObject(i).getInt("discount_id");
+		                    String m_discount_good = numberList.getJSONObject(i).getString("discount_good");
+		                    int m_discount_shop = numberList.getJSONObject(i).getInt("discount_shop");
+		                    String m_discount_deadline = numberList.getJSONObject(i).getString("discount_deadline");
+		                    String m_discount_picture =numberList.getJSONObject(i).getString("discount_picture");
+		                    String m_create_time = numberList.getJSONObject(i).getString("create_time");
+		                    String m_discount_type = numberList.getJSONObject(i).getString("discount_type");
+		                    String m_discount_description =numberList.getJSONObject(i).getString("discount_description");
+		                    int m_shop_id = numberList.getJSONObject(i).getInt("shop_id");
+		                    String m_shop_name = numberList.getJSONObject(i).getString("shop_name");
+		                    float m_shop_longitude =Float.parseFloat(numberList.getJSONObject(i).getString("shop_longitude"));
+		                    float m_shop_latitude = Float.parseFloat(numberList.getJSONObject(i).getString("shop_latitude"));
+		                    String m_shop_type =  numberList.getJSONObject(i).getString("shop_type");
+		                    int m_shop_owner =numberList.getJSONObject(i).getInt("shop_owner");
+		                    String m_shop_pic =numberList.getJSONObject(i).getString("shop_pic");
+		                    String m_shop_addr =numberList.getJSONObject(i).getString("shop_addr");
+		                    String m_shop_tags =numberList.getJSONObject(i).getString("shop_tags");
+		                	  System.out.println("shop_name:"+numberList.getJSONObject(i).get("shop_name"));
+		                      System.out.println("shop_latitude:"+numberList.getJSONObject(i).get("shop_latitude"));
 		                      
+		                      System.out.println("shop_longitude:"+numberList.getJSONObject(i).get("shop_longitude"));
+		                       d = new m_Discount();
+		                      s = new m_Shop();
+		                      for(int j=0;j<size;j++){
+		                      if(numberList.getJSONObject(i).getInt("shop_id")==Integer.parseInt(a[j])){
+		                    	  d.setM_create_time(m_create_time);
+		                          d.setM_discount_deadline(m_discount_deadline);
+			                      d.setM_discount_description(m_discount_description);
+			                      d.setM_discount_good(m_discount_good);
+			                      d.setM_discount_id(m_discount_id);
+			                      d.setM_discount_picture(m_discount_picture);
+			                      d.setM_discount_shop(m_discount_shop);
+			                      d.setM_discount_type(m_discount_type);
+			                      s.setM_shop_addr(m_shop_addr);
+			                      s.setM_shop_id(m_shop_id);
+			                      s.setM_shop_latitude(m_shop_latitude);
+			                      s.setM_shop_longitude(m_shop_longitude);
+			                      s.setM_shop_name(m_shop_name);
+			                      s.setM_shop_owner(m_shop_owner);
+			                      s.setM_shop_pic(m_shop_pic);
+			                      s.setM_shop_tags(m_shop_tags);
+			                      s.setM_shop_type(m_shop_type);
+		                    	  ds.get(j).add(d);
+		                    	  
+		                    	  ss.set(j, s);
+		                          break;
+		                      }
+		                      }
+		                      
+
 		                }
-		                handler.sendEmptyMessage(2);
-		                
+		                for(int i=0;i<size;i++){
+		                	ss.get(i).setDiscounts(ds.get(i));
+		                }
 		               
-		                
-		            
-		            }
-		           
+		                	jp.setShops(ss);
+			                
+			                for(int i=0;i<size;i++){
+			                	Map<String, Object> map = new HashMap<String, Object>();
+				                	map.put("discount_name", jp.getShops().get(i).getM_shop_name());
+					                  
+					            		map.put("discount_description", jp.getShops().get(i).getM_shop_type());
+					            		
+					            		map.put("discount_distance", ""+calculateDistance(locData.latitude,locData.longitude,jp.getShops().get(i).getM_shop_latitude(),jp.getShops().get(i).getM_shop_longitude())+"米");
+					            		map.put("app_icon", R.drawable.home_bottom_home);
+					            		list.add(map);
+//			                	System.out
+//										.println(jp.getShops().get(i).getM_shop_name()+jp.getShops().get(i).getM_shop_id()+jp.getShops().get(i).getM_shop_addr()+"---\n");
+//			                	                for(int j=0;j<jp.getShops().get(i).getDiscounts().size();j++){
+//			                	                	System.out
+//															.println(""+jp.getShops().get(i).getDiscounts().get(j).getM_discount_id()+"分隔符");
+//			                	                }
+												
+			                }
+			                handler.sendEmptyMessage(2);
+			     
+			                
+			               
+		                }
+
 		        } catch (UnsupportedEncodingException e) {
 		            
 		            e.printStackTrace();
@@ -494,7 +567,6 @@ public class HomeLayout extends Activity  {
 				}
 			}
 		}).start();
-    	
-    }
+	}
 
 }
