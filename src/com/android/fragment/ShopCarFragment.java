@@ -30,7 +30,7 @@ public class ShopCarFragment extends Fragment{
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 
-		View view = inflater.inflate(R.layout.what_new_two, container,false);
+		View view = inflater.inflate(R.layout.cart, container,false);
 		
 		
 
