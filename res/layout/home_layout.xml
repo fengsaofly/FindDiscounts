@@ -1,175 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:orientation="vertical" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android" >
+<LinearLayout android:orientation="vertical" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  >
  
-    <FrameLayout android:layout_gravity="center_horizontal" android:id="@id/top" android:background="@drawable/nav_backimg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true">
-        <TextView android:layout_gravity="right" android:id="@id/action" android:background="@anim/search_btn_bg" android:layout_width="32.0dip" android:layout_height="30.0dip" android:layout_marginTop="5.0dip" android:layout_marginRight="5.0dip" />
-        <TextView android:layout_gravity="left|center" android:id="@id/mall_refresh" android:background="@anim/top_right_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="2.0dip" />
-        <TextView android:textColor="#ffffffff" android:gravity="center" android:id="@id/back" android:background="@drawable/back_selector" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="编辑" android:layout_alignParentLeft="true" />
-        <TextView
-            android:id="@id/back_to"
-            style="@style/left_back_TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="返回"
-            android:visibility="gone" />
-        <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:id="@id/mall_classifation" android:layout_width="wrap_content" android:layout_height="wrap_content">
-            <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="#ff333333" android:layout_gravity="center" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="标题" />
-            <TextView android:textSize="18.0dip" android:textColor="#ff333333" android:layout_gravity="center" android:paddingLeft="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:singleLine="true" android:drawableRight="@drawable/arraw_down" />
-        </LinearLayout>
-    </FrameLayout>
-    
- <!--     <ScrollView android:orientation="vertical" android:id="@id/scro" android:scrollbars="vertical" android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="fill_parent" android:measureAllChildren="true" android:fillViewport="true" android:layout_above="@id/buttom" android:layout_below="@id/top">
-     -->
-      <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/top">
-            <RelativeLayout android:id="@id/search_box_layout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
-                <EditText android:textSize="16.0sp" android:textColor="#ff6b6b6b" android:textColorHint="#ff959595" android:id="@id/search_input" android:background="@drawable/search_editor" android:paddingLeft="30.0dip" android:paddingRight="75.0dip" android:focusable="false" android:focusableInTouchMode="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="商品关键字" android:singleLine="true" android:layout_centerVertical="true" android:inputType="text" android:imeOptions="actionSearch" />
-                <TextView android:layout_gravity="center_vertical" android:id="@id/edit_delete" android:background="@anim/edit_delete_bg" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="70.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
-                <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="right|center" android:id="@id/search_bt" android:background="@anim/btn_selector" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:text="搜索" android:shadowColor="#77000000" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
-            </RelativeLayout>
-			
- 		<LinearLayout 
-      
-      	android:visibility="gone"
+    <FrameLayout android:id="@+id/main_part"
+        android:layout_height="0dp"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/search_box_layout"
-       
-        android:layout_alignParentLeft="true"
-        android:orientation="vertical"
-        android:id="@+id/hide"
-        >
-        <LinearLayout android:id="@+id/ll1" android:layout_width="fill_parent" android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-           <FrameLayout android:id="@id/index" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content">
-        <ImageView android:layout_gravity="top|center" android:src="@drawable/public_toolbar_icon0" android:id="@id/indexImg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/indexText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="今日团购" />
+        android:layout_weight="0.9">
+        
+        
     </FrameLayout>
-    <FrameLayout android:id="@id/category" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/index">
-        <ImageView android:layout_gravity="top|center" android:src="@drawable/public_toolbar_icon1" android:id="@id/categoryImg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/categoryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="美妆商城" />
+   
+   <LinearLayout
+       android:layout_weight="0.1"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip" 
+        android:background="@drawable/tablebar_bg">
+    <FrameLayout android:onClick="myOnclick" android:layout_weight="0.25" android:id="@+id/home" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:layout_gravity="top|center" android:src="@drawable/public_toolbar_icon_home_final" android:id="@+id/home_bottom_homepage_img" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/indexText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="今日折扣" />
     </FrameLayout>
-    <FrameLayout android:id="@id/search" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/category">
-        <ImageView android:layout_gravity="top|center" android:src="@drawable/public_toolbar_icon2" android:id="@id/searchImg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/searchText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="名品特卖" />
-    </FrameLayout>
-    <FrameLayout android:id="@id/shopcar" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/search">
-        <ImageView android:layout_gravity="top|center" android:src="@drawable/public_toolbar_icon3" android:id="@id/shopcarImg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/shopcarText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="购物车" />
-    </FrameLayout>
+    <FrameLayout android:onClick="myOnclick" android:layout_weight="0.25"  android:id="@+id/nearBy" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/index">
 
-    <FrameLayout android:id="@id/more" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/shopcar">
-        <ImageView android:layout_gravity="top|center" android:src="@drawable/public_toolbar_icon4" android:id="@id/moreImg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/moreText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="我的聚美" />
-    </FrameLayout>
-    
-    </LinearLayout>
-    
-         <LinearLayout android:id="@+id/ll2" android:layout_width="fill_parent" android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-           <FrameLayout android:id="@id/index" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content">
-        <ImageView android:layout_gravity="top|center" android:src="@drawable/public_toolbar_icon0" android:id="@id/indexImg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/indexText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="今日团购" />
-    </FrameLayout>
-    <FrameLayout android:id="@id/category" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/index">
-        <ImageView android:layout_gravity="top|center" android:src="@drawable/public_toolbar_icon1" android:id="@id/categoryImg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/categoryText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="美妆商城" />
-    </FrameLayout>
-    <FrameLayout android:id="@id/search" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/category">
-        <ImageView android:layout_gravity="top|center" android:src="@drawable/public_toolbar_icon2" android:id="@id/searchImg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/searchText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="名品特卖" />
-    </FrameLayout>
-    <FrameLayout android:id="@id/shopcar" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/search">
-        <ImageView android:layout_gravity="top|center" android:src="@drawable/public_toolbar_icon3" android:id="@id/shopcarImg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/shopcarText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="购物车" />
-    </FrameLayout>
-    
-    <FrameLayout android:id="@id/more" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/shopcar">
-        <ImageView android:layout_gravity="top|center" android:src="@drawable/public_toolbar_icon4" android:id="@id/moreImg" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/moreText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="我的聚美" />
-    </FrameLayout>
-    
-    </LinearLayout>
-    </LinearLayout>
-            
-            <RelativeLayout android:id="@+id/home_viewpager_layout" android:layout_width="wrap_content" android:layout_height="134dip"  android:layout_below="@id/hide" >
-      		   <android.support.v4.view.ViewPager
-        android:id="@+id/middleviewpager"
-        android:layout_width="match_parent"
-        android:layout_height="134dip"
-        android:layout_alignParentLeft="true"
-    >
-    </android.support.v4.view.ViewPager>
-
-    <LinearLayout
-        android:id="@+id/ll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/middleviewpager"
-        android:layout_alignParentRight="true"
-        android:orientation="horizontal" >
-
-        <ImageView
+        <TextView
+            android:id="@id/categoryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:clickable="true"
-            android:padding="15.0dip"
-            android:src="@drawable/dot" />
+            android:layout_gravity="bottom|center"
+            android:text="附近优惠"
+            android:textColor="#ff777777"
+            android:textSize="9.0sp" />
 
         <ImageView
+            android:id="@+id/home_bottom_location_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:clickable="true"
-            android:padding="15.0dip"
-            android:src="@drawable/dot" />
+            android:src="@drawable/public_toolbar_icon_location" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:clickable="true"
-            android:padding="15.0dip"
-            android:src="@drawable/dot" />
+    </FrameLayout>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:clickable="true"
-            android:padding="15.0dip"
-            android:src="@drawable/dot" />
-    </LinearLayout>
   
-      		</RelativeLayout>
-            <RelativeLayout android:id="@id/point_layout"  android:layout_width="fill_parent" android:layout_height="18.0dip" android:layout_marginTop="-15.0dip" android:layout_below="@id/home_viewpager_layout">
-                <ImageView android:id="@id/point" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
-            </RelativeLayout>
-            <RelativeLayout android:id="@id/metro" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/point_layout" />           
-            <RelativeLayout   android:id="@+id/home_listview_layout" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:layout_below="@id/metro"> 
 
-				<ListView
-				    android:id="@+id/home_listview"
-				    android:layout_width="fill_parent"
-				    android:layout_height="wrap_content"
-				    android:layout_marginLeft="1.0dip"
-				    android:layout_marginRight="1.0dip"
-				    android:layout_marginTop="1.0dip"
-				    android:cacheColorHint="#ffffffff"
-				    android:divider="#ffb4b4b4"
-				    android:dividerHeight="1.0dip"
-				    android:fadingEdge="none" 
-				    android:scrollbars="vertical"/>
+    <FrameLayout android:onClick="myOnclick" android:layout_weight="0.25" android:id="@+id/shopCar" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/category">
+        <ImageView android:layout_gravity="top|center" android:src="@drawable/public_toolbar_icon_cart" android:id="@+id/home_bottom_cart_img" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/searchText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="购物车" />
+    </FrameLayout>
+    <FrameLayout android:onClick="myOnclick" android:layout_weight="0.25" android:id="@+id/myDiscount" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/search">
+        <ImageView android:layout_gravity="top|center" android:src="@drawable/public_toolbar_icon_account" android:id="@+id/home_bottom_account_img" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="9.0sp" android:textColor="#ff777777" android:layout_gravity="bottom|center" android:id="@id/shopcarText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="我的打折帮" />
+    </FrameLayout>
+   
+    </LinearLayout>
 
-            </RelativeLayout>
-             <RelativeLayout android:id="@id/xxxxxx" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/home_listview_layout">
-                <LinearLayout android:visibility="gone" android:orientation="horizontal" android:gravity="center" android:id="@id/jumei_mall_classification2_point_layout" android:layout_width="fill_parent" android:layout_height="20.0dip" />
-            </RelativeLayout>         
-        </RelativeLayout>
-   <!--   </ScrollView>-->
-    <include android:id="@id/buttom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/buttom_layout" />
     <RelativeLayout android:id="@id/mall_lead_layout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
-</RelativeLayout>
+</LinearLayout>

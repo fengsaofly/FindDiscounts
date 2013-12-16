@@ -646,36 +646,36 @@ public class LocationOverlayDemo extends Activity implements MKOfflineMapListene
     	Intent intent = getIntent();
     	float lat = intent.getFloatExtra("lat", 0);
     	float lng = intent.getFloatExtra("lng", 0);
-    	System.out.println("lat: "+lat);
-    	
+    	//System.out.println("lat: "+lat);
+    	Log.println(0, "lat", ""+lat);
     	
 //    	//pop demo
 //    	//创建pop对象，注册点击事件监听接口
-//    	PopupOverlay pop = new PopupOverlay(mMapView,new PopupClickListener() {                
-//    	        @Override
-//    	        public void onClickedPopup(int index) {
-//    	                //在此处理pop点击事件，index为点击区域索引,点击区域最多可有三个
-//    	        }
-//    	});
-//    	/**  准备pop弹窗资源，根据实际情况更改
-//    	 *  弹出包含三张图片的窗口，可以传入三张图片、两张图片、一张图片。
-//    	 *  弹出的窗口，会根据图片的传入顺序，组合成一张图片显示.
-//    	 *  点击到不同的图片上时，回调函数会返回当前点击到的图片索引index
-//    	 */
-//    	Bitmap[] bmps = new Bitmap[1];
-//    	try {
-//    	bmps[0] = BitmapFactory.decodeStream(getAssets().open("marker1.png"));
-//    	  
-//    	} catch (IOException e) {
-//    	         e.printStackTrace();
-//    	}
-//    	//弹窗弹出位置
-//    	//GeoPoint ptTAM = new GeoPoint((int)(39.915 * 1E6), (int) (116.404 * 1E6));
-//    	GeoPoint g = new GeoPoint((int)(lat*1e6),(int)(lng*1e6));
-//    	mMapView.getController().animateTo(g);
-//    	
-//    	//弹出pop,隐藏pop
-//    	pop.showPopup(bmps, g, 32);
+    	PopupOverlay pop = new PopupOverlay(mMapView,new PopupClickListener() {                
+    	        @Override
+    	        public void onClickedPopup(int index) {
+    	                //在此处理pop点击事件，index为点击区域索引,点击区域最多可有三个
+    	        }
+    	});
+    	/**  准备pop弹窗资源，根据实际情况更改
+    	 *  弹出包含三张图片的窗口，可以传入三张图片、两张图片、一张图片。
+    	 *  弹出的窗口，会根据图片的传入顺序，组合成一张图片显示.
+    	 *  点击到不同的图片上时，回调函数会返回当前点击到的图片索引index
+    	 */
+    	Bitmap[] bmps = new Bitmap[1];
+    	try {
+    	bmps[0] = BitmapFactory.decodeStream(getAssets().open("marker1.png"));
+    	  
+    	} catch (IOException e) {
+    	         e.printStackTrace();
+    	}
+    	//弹窗弹出位置
+    	//GeoPoint ptTAM = new GeoPoint((int)(39.915 * 1E6), (int) (116.404 * 1E6));
+    	GeoPoint g = new GeoPoint((int)(30*1e6),(int)(104*1e6));
+    	mMapView.getController().animateTo(g);
+    	
+    	//弹出pop,隐藏pop
+    	pop.showPopup(bmps, g, 32);
 //    	//隐藏弹窗
 //    	//  pop.hidePop();
 

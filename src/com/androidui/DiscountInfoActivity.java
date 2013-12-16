@@ -11,8 +11,10 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -42,6 +44,8 @@ public class DiscountInfoActivity extends Activity {
 	//剩余时间模拟数据
     int totleseconds = 1000000;  //全部换算成秒
 	int millseconds =100;
+	
+	ImageView shopRightArrowIcon = null;
 	
 
 	TextView price =null;
@@ -137,6 +141,7 @@ public class DiscountInfoActivity extends Activity {
 		 shopHour = (TextView)findViewById(R.id.workHour);
 		 gotoMap = (RelativeLayout)findViewById(R.id.goods_property_tag);
 		 
+		 
 			 ms = (com.android.testbaiduapi.m_Shop)getIntent().getParcelableExtra("shop");    
 			System.out.println(ms.getM_shop_id()
 					+"  "+ms.getM_shop_addr()
@@ -210,7 +215,23 @@ public class DiscountInfoActivity extends Activity {
 			intent.putExtra("lng", ms.getM_shop_longitude());
 			startActivity(intent);
 			break;
+		case R.id.goods_details:
+			Log.i("shop", "进来了");
+			shopRightArrowIcon = (ImageView)findViewById(R.id.shop_info_right_arrow_img);
+			
+			LinearLayout shopDetails =  (LinearLayout)findViewById(R.id.shop_detail_layout);
+			if(shopDetails.getVisibility() == View.VISIBLE){
+				shopDetails.setVisibility(View.GONE);
+				shopRightArrowIcon.setImageResource(R.drawable.triangle_down);
+			}
+			else
+			{
+				shopDetails.setVisibility(View.VISIBLE);
+				shopRightArrowIcon.setImageResource(R.drawable.triangle_up);
+			}
 		}
+		
+			
 		
 	}
 	

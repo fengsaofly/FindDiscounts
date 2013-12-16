@@ -9,7 +9,57 @@
         </RelativeLayout>
         <RelativeLayout android:id="@id/big_gallery_layout" android:background="@drawable/img_home_shadow" android:layout_width="fill_parent" android:layout_height="134.0dip" android:layout_below="@id/search_box_layout">
 "
-<com.jm.android.jumei.controls.MyGallery android:gravity="center" android:id="@id/big_gallery" android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="134.0dip" android:unselectedAlpha="1.0" />
+<RelativeLayout android:id="@id/home_viewpager_layout" android:layout_width="wrap_content" android:layout_height="134dip"  android:layout_below="@id/hide" >
+      		   <android.support.v4.view.ViewPager
+        android:id="@+id/middleviewpager"
+        android:layout_width="match_parent"
+        android:layout_height="134dip"
+        android:layout_alignParentLeft="true"
+    >
+    </android.support.v4.view.ViewPager>
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/middleviewpager"
+        android:layout_alignParentRight="true"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:clickable="true"
+            android:padding="15.0dip"
+            android:src="@drawable/dot" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:clickable="true"
+            android:padding="15.0dip"
+            android:src="@drawable/dot" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:clickable="true"
+            android:padding="15.0dip"
+            android:src="@drawable/dot" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:clickable="true"
+            android:padding="15.0dip"
+            android:src="@drawable/dot" />
+    </LinearLayout>
+  
+      		</RelativeLayout>
         </RelativeLayout>
         <RelativeLayout android:id="@id/point_layout" android:layout_width="fill_parent" android:layout_height="18.0dip" android:layout_marginTop="-15.0dip" android:layout_below="@id/big_gallery_layout">
             <ImageView android:id="@id/point" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
