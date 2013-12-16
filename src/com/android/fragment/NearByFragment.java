@@ -30,6 +30,9 @@ import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class NearByFragment extends Fragment{
+	
+	private ViewPager vp =null ;
+	private MiddleViewPageAdapter vpAdapter=null;
 	public static NearByFragment newInstance(){
 		NearByFragment detail= new NearByFragment();
 		
