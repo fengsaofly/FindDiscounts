@@ -4,7 +4,7 @@ public class GlobalParameter {
 	
 	
 	
-	public static String appKey = "8fxONTuUH2Zcy7MVQGZdDUBX";
+	public static String appKey = "D39c7781d907732c4201ed124e4d52ff";
 	public static String serverKey = "7244d82a2ef54bfa015a0d7d6f85f379";
 	public static String browerKey = "C8e5f84b57555c9e0478c87526b878c0";
 	public static String secretKey = "zFY9Lvz3OKDMzAf5Bd5VI0A0UqGoX3Hv"; 

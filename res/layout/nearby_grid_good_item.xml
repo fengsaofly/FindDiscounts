@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="130dip"
+    android:layout_height="wrap_content"
+   	android:orientation="vertical"
+   
+    >
+
+    <ImageView
+        android:id="@+id/grid_item_image"
+        android:layout_width="fill_parent"
+        android:layout_height="100.0dip"
+        android:adjustViewBounds="true"
+        android:background="@drawable/img_home_small_side"
+        android:scaleType="fitXY"
+        android:src="@drawable/discountsbar_logo" />
+
+	<TextView
+	    android:id="@+id/grid_item_discount_type"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center"
+	    android:text="买一送一"
+	    android:textColor="@color/TextColorRed" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="美特斯邦威限量卫衣" 
+       />
+  
+       
+</LinearLayout>

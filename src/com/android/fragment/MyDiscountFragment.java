@@ -31,7 +31,7 @@ public class MyDiscountFragment extends Fragment{
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 
-		View view = inflater.inflate(R.layout.what_new_one, container,false);
+		View view = inflater.inflate(R.layout.account, container,false);
 		
 		
 

@@ -2,10 +2,16 @@
 <RelativeLayout android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <FrameLayout android:layout_gravity="center_horizontal" android:id="@id/myJuMeiTop" android:background="@drawable/nav_backing_shadow" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="#ff333333" android:layout_gravity="center_horizontal" android:id="@id/myJuMeiTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="我的聚美" />
+        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="#ff333333" android:layout_gravity="center_horizontal" android:id="@id/myJuMeiTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="我的打折帮" />
         <Button android:textSize="12.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="right" android:id="@id/set" android:background="@drawable/set_btn_selector" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:layout_marginRight="5.0dip" />
     </FrameLayout>
-    <ScrollView android:id="@id/more_ScrollView" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/buttom" android:layout_below="@id/myJuMeiTop">
+
+    <ScrollView
+        android:id="@id/more_ScrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/myJuMeiTop" >
+
         <LinearLayout android:orientation="vertical" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
             <RelativeLayout android:id="@id/myJuMeiLay" android:background="@anim/shape_rounded_rectangle" android:paddingBottom="10.0dip" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginRight="5.0dip">
                 <ImageView android:id="@id/photo" android:background="@drawable/img_home_small" android:layout_width="64.0dip" android:layout_height="64.0dip" android:layout_margin="10.0dip" android:layout_centerVertical="true" />
@@ -30,16 +36,11 @@
                     <TextView android:id="@id/more_order_icon" android:background="@drawable/icon_order" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" />
                     <TextView android:textColor="#ff000000" android:id="@id/more_order" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="订单" android:layout_below="@id/more_order_icon" android:layout_centerHorizontal="true" />
                 </RelativeLayout>
-                <RelativeLayout android:gravity="center" android:id="@id/more_promocard_layout" android:background="@drawable/myjumei_promocard_selector" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true">
-                    <TextView android:id="@id/more_promocard_icon" android:background="@drawable/icon_coupon" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" />
-                    <TextView android:textColor="#ff000000" android:id="@id/more_promocard" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="现金券/红包" android:layout_below="@id/more_promocard_icon" android:layout_centerHorizontal="true" />
-                </RelativeLayout>
                 <RelativeLayout android:gravity="center" android:id="@id/more_enjoy_layout" android:background="@drawable/myjumei_like_selector" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:layout_alignParentRight="true">
                     <TextView android:id="@id/more_address_icon" android:background="@drawable/icon_address" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" />
                     <TextView android:textColor="#ff000000" android:id="@id/more_address" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="收货地址" android:layout_below="@id/more_address_icon" android:layout_centerHorizontal="true" />
                 </RelativeLayout>
             </RelativeLayout>
-            <Button android:textSize="18.0dip" android:textColor="#ffffffff" android:gravity="center" android:id="@id/magic" android:background="@anim/login_button_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="11.0dip" android:layout_marginRight="5.0dip" android:text="聚美魔盒" />
             <LinearLayout android:orientation="vertical" android:padding="6.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="6.0dip">
                 <RelativeLayout android:background="@anim/shape_rounded_rectangle" android:padding="1.0dip" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content">
                     <RelativeLayout android:id="@id/subscription" android:background="@anim/more_selector" android:layout_width="fill_parent" android:layout_height="wrap_content">
@@ -93,5 +94,4 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-    <include android:id="@id/buttom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/buttom_layout" />
 </RelativeLayout>
