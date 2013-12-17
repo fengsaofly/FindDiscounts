@@ -108,6 +108,13 @@ public class HomeLayout extends FragmentActivity  {
 			intent.setClass(this,LoginAndRegistActivity.class);
 			startActivity(intent);
 			break;
+		 case R.id.MyFavoriteLayout:
+
+				
+				intent.putExtra("type","regist");
+				intent.setClass(this,MyFavoriteActivity.class);
+				startActivity(intent);
+				break;
 		}
    
 	

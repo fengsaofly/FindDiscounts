@@ -4,7 +4,7 @@
     <FrameLayout android:layout_gravity="center" android:id="@id/goods_icon_lay" android:background="#ffffffff" android:layout_width="100.0dip" android:layout_height="100.0dip">
         <FrameLayout android:layout_gravity="center" android:layout_width="100.0dip" android:layout_height="100.0dip">
             <ImageView android:layout_gravity="center" android:id="@id/goods_icon" android:background="@drawable/img_home_small" android:layout_width="100.0dip" android:layout_height="100.0dip" />
-            <ImageView android:layout_gravity="center" android:background="@drawable/img_home_small_side" android:layout_width="100.0dip" android:layout_height="100.0dip" />
+            <ImageView android:layout_gravity="center" android:background="@drawable/discountsbar_logo" android:layout_width="100.0dip" android:layout_height="100.0dip" />
             <ImageView android:id="@id/goods_status" android:layout_width="wrap_content" android:layout_height="wrap_content" />
             <ProgressBar android:layout_gravity="center" android:id="@id/goods_icon_progressBar" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
         </FrameLayout>
@@ -12,6 +12,7 @@
     <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10.0dip">
         <TextView android:gravity="right" android:id="@id/myenjoy_del" android:background="@drawable/myjumei_like_del" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" />
         <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="#ff000000" android:ellipsize="end" android:id="@id/myenjoy_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="的地方啥的地方的地的地方啥的地方的地" android:lines="2" android:layout_toLeftOf="@id/myenjoy_del" android:layout_alignParentTop="true" />
+        <TextView  android:id="@+id/myenjoy_type"  android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true"  android:layout_below="@id/myenjoy_name" android:gravity="center_vertical"  android:text="买一送一" android:textColor="@color/TextColorRed" />
         <TextView android:gravity="center_vertical" android:id="@id/myenjoy_stuts" android:background="@drawable/myenjoy_seal_over" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true" />
         <TextView android:textColor="#ffffffff" android:gravity="center" android:id="@id/myenjoy_dingyue" android:background="@anim/public_filter_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="订阅" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
     </RelativeLayout>
