@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    >
+
+	<RelativeLayout
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content" >
+
+   <ImageView android:id="@+id/grid_item_image" 
+       android:background="@drawable/discountsbar_logo" 
+       android:layout_width="100.0dip" 
+       android:layout_height="100.0dip" 
+       android:layout_centerVertical="true" 
+       />
+
+   </RelativeLayout>
+
+	<TextView
+	    android:id="@+id/grid_item_name"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="美特斯邦威卫衣" />
+        
+</LinearLayout>

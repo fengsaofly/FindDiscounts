@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridView android:id="@id/jumei_mall_index_brand_Gridview" android:background="#ffcccccc" android:padding="1.0px" android:layout_width="fill_parent" android:layout_height="fill_parent" android:listSelector="#00ffffff" android:horizontalSpacing="1.0dip" android:verticalSpacing="1.0dip" android:numColumns="4" android:layout_centerHorizontal="true" android:layout_centerVertical="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" />
