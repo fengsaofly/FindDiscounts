@@ -8,15 +8,15 @@
     <FrameLayout android:id="@id/tabButtonFrame" android:background="@drawable/sub_top_black" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/myenjoy_layout">
         <RelativeLayout android:layout_gravity="bottom|center" android:id="@id/tabButtons" android:layout_width="fill_parent" android:layout_height="wrap_content">
             <LinearLayout android:layout_centerHorizontal="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal">
-            <TextView android:textColor="#ff333333" android:gravity="center" android:layout_gravity="left|center" android:id="@id/favorProductsText" android:background="@drawable/smlbtn_page_normal_1" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="收藏商品" android:layout_alignParentTop="true" />
-            <TextView android:textColor="#ff333333" android:gravity="center" android:layout_gravity="left|center" android:id="@id/favorBrandsText" android:background="@drawable/smlbtn_page_normal_4" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="收藏商店" android:layout_toRightOf="@id/favorProductsText" android:layout_alignParentTop="true" />
+            <TextView android:onClick="onClick" android:textColor="#ff333333" android:gravity="center" android:layout_gravity="left|center" android:id="@id/favorProductsText" android:background="@drawable/smlbtn_page_normal_1" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="收藏商品" android:layout_alignParentTop="true" />
+            <TextView android:onClick="onClick" android:textColor="#ff333333" android:gravity="center" android:layout_gravity="left|center" android:id="@id/favorBrandsText" android:background="@drawable/smlbtn_page_normal_4" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="收藏商店" android:layout_toRightOf="@id/favorProductsText" android:layout_alignParentTop="true" />
         	</LinearLayout>
         </RelativeLayout>
         <ImageView android:layout_gravity="bottom" android:background="@drawable/bar_page" android:layout_width="fill_parent" android:layout_height="wrap_content" />
         <RelativeLayout android:layout_gravity="bottom|center" android:id="@id/tabButtons" android:layout_width="fill_parent" android:layout_height="wrap_content">
             <LinearLayout android:layout_centerHorizontal="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal">
-            <TextView android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="left|center" android:id="@id/favorProductsTextSelected" android:background="@drawable/smlbtn_page_selected" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:visibility="invisible" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="收藏商品" android:layout_toLeftOf="@id/favorBrandsTextSelected" />
-            <TextView android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="left|center" android:id="@id/favorBrandsTextSelected" android:background="@drawable/smlbtn_page_selected" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:visibility="invisible" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="收藏商店" android:layout_toRightOf="@id/favorProductsTextSelected" android:layout_alignParentTop="true" />
+            <TextView   android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="left|center" android:id="@id/favorProductsTextSelected" android:background="@drawable/smlbtn_page_selected" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:visibility="visible" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="收藏商品" android:layout_alignParentTop="true" />
+            <TextView   android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="left|center" android:id="@id/favorBrandsTextSelected" android:background="@drawable/smlbtn_page_selected" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:visibility="invisible" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="收藏商店" android:layout_toRightOf="@id/favorProductsTextSelected" android:layout_alignParentTop="true" />
        		</LinearLayout>
         </RelativeLayout>
     </FrameLayout>
@@ -25,11 +25,6 @@
         <TextView android:textSize="14.0dip" android:textColor="@color/TextColorGray" android:gravity="center" android:id="@id/nogood_tx" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="还没有收藏的商品" />
     </RelativeLayout>
 
-    <include
-        android:id="@id/buttom"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        layout="@layout/buttom_layout" />
+  
 
 </RelativeLayout>
