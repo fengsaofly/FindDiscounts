@@ -61,7 +61,7 @@
          <activity android:name="com.androidui.DisplayActivity" />
         <activity android:name="com.androidui.Other" />
          <activity android:name="com.androidui.DiscountInfoActivity" />
-        
+        <activity android:name="com.androidui.LoginAndRegistActivity" />
        <service
             android:name="com.baidu.location.f"
             android:enabled="true"

@@ -1,5 +1,6 @@
 package com.androidui;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -70,7 +71,7 @@ public class HomeLayout extends FragmentActivity  {
     
     public void myOnclick(View view){ 
 		Fragment details;
-		Log.i("shuchu", "Jinlail ");
+		Intent intent = new Intent();
 		switch(view.getId()){
 		case R.id.home:
 			 details = NewDiscountFragment.newInstance();
@@ -93,10 +94,26 @@ public class HomeLayout extends FragmentActivity  {
 			 fManager.beginTransaction().replace(R.id.main_part, details).commit();
 			 myButtonBgChanged(R.id.myDiscount);
 			break;
-		
+		case R.id.login_btn:
+
+			
+			intent.putExtra("type","login");
+			intent.setClass(this,LoginAndRegistActivity.class);
+			startActivity(intent);
+			break;
+		 case R.id.regist_btn:
+
+			
+			intent.putExtra("type","regist");
+			intent.setClass(this,LoginAndRegistActivity.class);
+			startActivity(intent);
+			break;
 		}
-		
+   
+	
 	}
+		
+	
 	
 	public void myButtonBgChanged(int id){
 
