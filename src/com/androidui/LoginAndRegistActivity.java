@@ -7,11 +7,13 @@ import android.text.InputType;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AutoCompleteTextView;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.android.testbaiduapi.R;
 
@@ -28,6 +30,7 @@ public class LoginAndRegistActivity extends Activity {
 	AutoCompleteTextView registEmailValue = null;
 	EditText registUserNameValue = null;
 	EditText registUserPassValue = null;
+	TextView registerBtn = null;
 //	int tabIndex = 0;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,18 @@ public class LoginAndRegistActivity extends Activity {
 		registEmailValue = (AutoCompleteTextView)findViewById(R.id.emailValue);
 		registUserNameValue = (EditText)findViewById(R.id.userNameValue);
 		registUserPassValue = (EditText)findViewById(R.id.userPassValue);
+		
+		registerBtn = (TextView)findViewById(R.id.registerButton);
+		 registerBtn.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View arg0) {
+				
+					checkRegistInfo();
+					// TODO Auto-generated method stub
+					
+				}
+			});
 	}
 	public void handleIntent() {
 		Intent intent = getIntent();
@@ -86,9 +101,9 @@ public class LoginAndRegistActivity extends Activity {
 					
 				}
 				break;
-			case R.id.registerButton:
-				checkRegistInfo();
-				break;
+//			case R.id.registerButton:
+//				checkRegistInfo();
+//				break;
 		}
 		
 	}

@@ -80,7 +80,7 @@ public class MyFavoriteActivity extends Activity{
 	      shopsLvAdapter = new SimpleAdapter(this, shopsList, R.layout.myenjoy_item, new String[]{"ItemImage","ItemText"}, 
 					new int[]{R.id.goods_icon,R.id.myenjoy_name});
 	   
-    	
+	     itemList.setAdapter(discountsLvAdapter);
     	//监听事件处理
     	itemList.setOnItemClickListener(new OnItemClickListener() {
     		
