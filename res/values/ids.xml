@@ -121,7 +121,7 @@
     <item type="id" name="bpush_progress_title">false</item>
     <item type="id" name="bpush_progress_text">false</item>
     <item type="id" name="bpush_download_progress">false</item>
-    <item type="id" name="bpush_media_list_return_btn">false</item>
+    <item type="id"  name="bpush_media_list_return_btn">false</item>
     <item type="id" name="bpush_media_none_layout">false</item>
     <item type="id" name="bpush_type_listview">false</item>
     <item type="id" name="bpush_media_list_img">false</item>
@@ -1423,4 +1423,11 @@
     <item type="id" name="class_name">false</item>
     <item type="id" name="class_size">false</item>
     <item type="id" name="class_arrow">false</item>
+    <item name="publishTimeText" type="id">false</item>
+    <item name="distanceText" type="id">false</item>
+    <item name="discountLevelText" type="id">false</item>
+    <item name="publishTimeTextSelected" type="id">false</item>
+    <item name="distanceTextSelected" type="id">false</item>
+    <item name="discountLevelTextSelected" type="id">false</item>
+   
 </resources>
