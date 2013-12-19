@@ -28,29 +28,28 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
 
 import com.android.testbaiduapi.GlobalParameter;
 import com.android.testbaiduapi.JsonParser;
 import com.android.testbaiduapi.R;
 import com.android.testbaiduapi.m_Discount;
 import com.android.testbaiduapi.m_Shop;
+import com.android.utils.DiscountBaseAdapter;
 import com.androidui.DiscountInfoActivity;
-import com.androidui.HomeLayout;
 import com.androidui.MiddleViewPageAdapter;
-
-
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
@@ -213,23 +212,23 @@ public class NewDiscountFragment extends Fragment{
   			}
   		});
           
-        views = new ArrayList<View>();
-  		
-  		
-       LayoutInflater inflater2 = LayoutInflater.from(getActivity());
-  			views.add(inflater.inflate(R.layout.what_new_one, null));
-  			views.add(inflater.inflate(R.layout.what_new_two, null));
-  			views.add(inflater.inflate(R.layout.what_new_three, null));
-  			views.add(inflater.inflate(R.layout.what_new_four, null));
-  	
-
-  		// 初始化Adapter
-  		
-  		vpAdapter = new MiddleViewPageAdapter(views, getActivity());
-  		
-  		
-  		vp.setAdapter(this.vpAdapter);
-  		initDots();
+//        views = new ArrayList<View>();
+//  		
+//  		
+//       LayoutInflater inflater2 = LayoutInflater.from(getActivity());
+//  			views.add(inflater.inflate(R.layout.what_new_one, null));
+//  			views.add(inflater.inflate(R.layout.what_new_two, null));
+//  			views.add(inflater.inflate(R.layout.what_new_three, null));
+//  			views.add(inflater.inflate(R.layout.what_new_four, null));
+//  	
+//
+//  		// 初始化Adapter
+//  		
+//  		vpAdapter = new MiddleViewPageAdapter(views, getActivity());
+//  		
+//  		
+//  		vp.setAdapter(this.vpAdapter);
+//  		initDots();
   		
   		new Thread(new Runnable() {
 			
@@ -248,10 +247,13 @@ public class NewDiscountFragment extends Fragment{
 		}).start();	
   		
   		listview = (ListView) view.findViewById(R.id.home_listview);
-  		 adapter = new SimpleAdapter(getActivity(),list,R.layout.friendlink_item,
-				new String[]{"discount_name","discount_description","discount_distance","app_icon"},
+//  		 adapter = new SimpleAdapter(getActivity(),list,R.layout.friendlink_item,
+//				new String[]{"discount_name","discount_description","discount_distance","app_icon"},
+//				new int[]{R.id.discount_name,R.id.discount_description,R.id.discount_distance,R.id.app_icon});
+  		DiscountBaseAdapter discountAdapter = new DiscountBaseAdapter(getActivity(),getActivity(),list,
+  				new String[]{"discount_name","discount_description","discount_distance","app_icon"},
 				new int[]{R.id.discount_name,R.id.discount_description,R.id.discount_distance,R.id.app_icon});
-  		listview.setAdapter(adapter);
+  		listview.setAdapter(discountAdapter);
 		listview.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -434,7 +436,7 @@ public class MyLocationListenner implements BDLocationListener {
                 return ;
             }
         }
-    }
+}
 
 
 public void queryShops(){ //查询附近或搜索出来的打折商家信息
@@ -585,7 +587,9 @@ public void queryShops(){ //查询附近或搜索出来的打折商家信息
 }
 	
 
-	
+	class DiscountAdapter{
+		
+	}
 
   
 	

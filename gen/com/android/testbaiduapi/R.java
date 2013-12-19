@@ -857,7 +857,7 @@ public final class R {
         public static final int DetailInfoItemCanvas=0x7f080069;
         public static final int GPS_title=0x7f0801a8;
         public static final int GridView_toolbar=0x7f0800c7;
-        public static final int ItemText=0x7f0805e8;
+        public static final int ItemText=0x7f0805e6;
         public static final int Lay1=0x7f08036b;
         public static final int MyFavoriteLayout=0x7f080596;
         public static final int PayPrompt1=0x7f080420;
@@ -1351,13 +1351,13 @@ public final class R {
         public static final int history_search_bt=0x7f0801cd;
         public static final int history_search_input=0x7f0801cb;
         public static final int home=0x7f0805ad;
-        public static final int home_bottom_account_img=0x7f0805e7;
-        public static final int home_bottom_cart_img=0x7f0805e6;
-        public static final int home_bottom_homepage_img=0x7f0805e4;
-        public static final int home_bottom_location_img=0x7f0805e5;
-        public static final int home_listview=0x7f0805e2;
-        public static final int home_listview_layout=0x7f0805e1;
-        public static final int home_viewpager_layout=0x7f0805df;
+        public static final int home_bottom_account_img=0x7f0805e5;
+        public static final int home_bottom_cart_img=0x7f0805e4;
+        public static final int home_bottom_homepage_img=0x7f0805e2;
+        public static final int home_bottom_location_img=0x7f0805e3;
+        public static final int home_listview=0x7f0805e0;
+        public static final int home_listview_layout=0x7f0805df;
+        public static final int home_viewpager_layout=0x7f0805eb;
         public static final int hot_list1=0x7f0804d8;
         public static final int hot_list2=0x7f0804d9;
         public static final int hot_list3=0x7f0804da;
@@ -1470,7 +1470,7 @@ public final class R {
         public static final int line_text=0x7f080252;
         public static final int line_tx=0x7f080486;
         public static final int line_up_down=0x7f080224;
-        public static final int linearLayout1=0x7f0805ea;
+        public static final int linearLayout1=0x7f0805e9;
         public static final int lineary1=0x7f080227;
         public static final int list_view=0x7f0800d3;
         public static final int listlayout=0x7f0805a7;
@@ -1615,7 +1615,7 @@ public final class R {
         public static final int magic_timeLay=0x7f0800b4;
         public static final int mailLay=0x7f0804c6;
         public static final int main_layout=0x7f08047e;
-        public static final int main_part=0x7f0805e3;
+        public static final int main_part=0x7f0805e1;
         public static final int main_view=0x7f080293;
         public static final int mall_classifation=0x7f0801dd;
         public static final int mall_classification2_img=0x7f0801f2;
@@ -1637,7 +1637,7 @@ public final class R {
         public static final int menu_settings=0x7f0805f7;
         public static final int metro=0x7f0801e6;
         public static final int middle_bt=0x7f080534;
-        public static final int middleviewpager=0x7f0805e0;
+        public static final int middleviewpager=0x7f0805e8;
         public static final int more=0x7f080044;
         public static final int moreImg=0x7f0800a1;
         public static final int moreText=0x7f0800a2;
@@ -1698,7 +1698,7 @@ public final class R {
         public static final int myenjoy_name=0x7f0801fb;
         public static final int myenjoy_stuts=0x7f0801fc;
         public static final int myenjoy_title=0x7f0801ff;
-        public static final int myenjoy_type=0x7f0805eb;
+        public static final int myenjoy_type=0x7f0805ea;
         public static final int name=0x7f08008d;
         public static final int nearBy=0x7f0805ae;
         public static final int nearby_gridview=0x7f0805ec;
@@ -1939,7 +1939,7 @@ public final class R {
         public static final int registerbindLay=0x7f0804b8;
         public static final int registerbindRegLay=0x7f0804b7;
         public static final int registerbindTop=0x7f08020e;
-        public static final int relativeLayout=0x7f0805e9;
+        public static final int relativeLayout=0x7f0805e7;
         public static final int release=0x7f080507;
         public static final int remove=0x7f0805ef;
         public static final int renrenLogin_lay_new=0x7f08022e;
@@ -2457,10 +2457,11 @@ public final class R {
         public static final int scan=0x7f03004e;
         public static final int searchitem=0x7f03004f;
         public static final int splash=0x7f030050;
-        public static final int what_new_four=0x7f030051;
-        public static final int what_new_one=0x7f030052;
-        public static final int what_new_three=0x7f030053;
-        public static final int what_new_two=0x7f030054;
+        public static final int viewpager_layout=0x7f030051;
+        public static final int what_new_four=0x7f030052;
+        public static final int what_new_one=0x7f030053;
+        public static final int what_new_three=0x7f030054;
+        public static final int what_new_two=0x7f030055;
     }
     public static final class menu {
         public static final int activity_main=0x7f0b0000;
