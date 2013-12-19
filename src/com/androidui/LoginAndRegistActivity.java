@@ -40,20 +40,22 @@ import com.android.utils.GeneralFunctions;
 
 public class LoginAndRegistActivity extends Activity {
 	
+	int REGIST_TYPE=1,LOGIN_TYPE = 0;
 	RelativeLayout loginLayout = null;
 	RelativeLayout registLayout = null;
 
 	LinearLayout loginTabLayout = null;
 	LinearLayout registTabLayout = null;
 	
-	CheckBox login_show_password = null;
-	EditText userPassValue = null;
-	AutoCompleteTextView registEmailValue = null;
-	EditText registUserNameValue = null;
-	EditText registUserPassValue = null;
-	TextView registerBtn = null;
+	CheckBox login_show_password = null,show_password = null;//登录和注册的——显示密码checkbox
 	
-	List<BasicNameValuePair> postData;
+	AutoCompleteTextView registEmailValue = null;
+	AutoCompleteTextView loginUserName=null;
+	EditText registUserNameValue = null;
+	EditText registUserPassValue = null,loginUserPass=null;
+	TextView registerBtn = null,loginButton=null;
+	
+	List<BasicNameValuePair> postData = new ArrayList<BasicNameValuePair>();;
 	
 	private static final String[] COUNTRIES = new String[] {
 	         "Belgium", "France", "Italy", "Germany", "Spain"
@@ -77,21 +79,43 @@ public class LoginAndRegistActivity extends Activity {
 		registTabLayout = (LinearLayout)findViewById(R.id.registerTab_select);
 		
 		login_show_password = (CheckBox)findViewById(R.id.login_show_password);
-		userPassValue = (EditText)findViewById(R.id.userPassValue);
+		loginUserName = (AutoCompleteTextView)findViewById(R.id.loginUserNameValue);
+		loginUserPass = (EditText)findViewById(R.id.userPassValue);
+		
+		
+		loginButton = (TextView)findViewById(R.id.loginButton);
+		loginButton.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View arg0) {
+					Boolean success = checkLoginInfo();
+					if(success){
+//						System.out.println("成功~");
+						post(GlobalParameter.LOGIN_BASEURL, postData,LOGIN_TYPE);
+					
+					}
+					else{
+						
+					}
+					// TODO Auto-generated method stub
+					
+				}
+			});
 		//注册
 		registEmailValue = (AutoCompleteTextView)findViewById(R.id.emailValue);
 		registUserNameValue = (EditText)findViewById(R.id.userNameValue);
 		registUserPassValue = (EditText)findViewById(R.id.userPassValue1);
+		show_password = (CheckBox)findViewById(R.id.show_password);
 		
 		registerBtn = (TextView)findViewById(R.id.registerButton);
 		 registerBtn.setOnClickListener(new OnClickListener() {
 				
 				@Override
 				public void onClick(View arg0) {
-					Boolean success = checkRegistInfo();
+					Boolean success = checkRegistInfo();//检测注册信息
 					if(success){
 						System.out.println("成功~");
-						post(GlobalParameter.REGIST_BASEURL, postData);
+						post(GlobalParameter.REGIST_BASEURL, postData,REGIST_TYPE);//提交到服务器
 					
 					}
 					else{
@@ -105,6 +129,11 @@ public class LoginAndRegistActivity extends Activity {
 	Handler handler = new Handler(){
 		public void handleMessage(Message msg){
 			switch(msg.what){
+			//登录成功
+			case 0:
+				showTab(0);//显示登录信息
+				break;
+			//注册成功
 			case 1:
 				showTab(0);//显示登录界面
 				break;
@@ -115,7 +144,10 @@ public class LoginAndRegistActivity extends Activity {
 			super.handleMessage(msg);
 		}
 	};
-	public void post(String url,final List<BasicNameValuePair> postData) {
+	private void clearPostData() {
+		postData.clear();
+	}
+	public void post(String url,final List<BasicNameValuePair> postData,final int type) {
 		new Thread(new Runnable() {
 			 
 			@Override
@@ -140,8 +172,14 @@ public class LoginAndRegistActivity extends Activity {
 				        if (response.getStatusLine().getStatusCode() == 200) {  
 				            // 取出回应字串  
 				            strResult = EntityUtils.toString(response.getEntity());  
+				            System.out.println(strResult);
 				            Message msg = handler.obtainMessage();
-				            msg.what=1;
+				            if(type == REGIST_TYPE){
+				            	 msg.what=1;
+				            }
+				            else if(type == LOGIN_TYPE){
+				            	msg.what = 0;
+				            }
 				            msg.obj = strResult;
 				            handler.sendMessage(msg);
 				            
@@ -203,15 +241,30 @@ public class LoginAndRegistActivity extends Activity {
 			case R.id.login_show_password:
 				//显示密码
 				if(login_show_password.isChecked()){
-					userPassValue.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+					loginUserPass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
 //					userPassValue.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
-					userPassValue.setSelection(userPassValue.getText().length());//将光标放在行尾
+					loginUserPass.setSelection(loginUserPass.getText().length());//将光标放在行尾
 					}
 				//隐藏密码
 				else
 				{
-					userPassValue.setTransformationMethod(PasswordTransformationMethod.getInstance());
-					userPassValue.setSelection(userPassValue.getText().length());
+					loginUserPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
+					loginUserPass.setSelection(loginUserPass.getText().length());
+					
+				}
+				break;
+			case R.id.show_password:
+				//显示密码
+				if(show_password.isChecked()){
+					registUserPassValue.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+//					userPassValue.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+					registUserPassValue.setSelection(registUserPassValue.getText().length());//将光标放在行尾
+					}
+				//隐藏密码
+				else
+				{
+					registUserPassValue.setTransformationMethod(PasswordTransformationMethod.getInstance());
+					registUserPassValue.setSelection(registUserPassValue.getText().length());
 					
 				}
 				break;
@@ -220,6 +273,48 @@ public class LoginAndRegistActivity extends Activity {
 //				break;
 		}
 		
+	}
+    public Boolean checkLoginInfo() {
+    	
+    	String user = loginUserName.getText().toString();
+    	String pwd = loginUserPass.getText().toString();
+    	Boolean satisfaction = true;
+    	String msg = "";
+    	
+    	if(user.length() < 4 || user.length() > 12){
+    		satisfaction = false;
+    		msg = "用户名长度错误!";
+//    		return satisfaction;
+    	}
+    	else if(pwd.length() < 4 || pwd.length() > 12){
+    		satisfaction = false;
+    		msg = "密码长度错误!";
+//    		return satisfaction;
+    	}
+       	if(!satisfaction){
+    		new AlertDialog.Builder(LoginAndRegistActivity.this).setTitle("警告").setMessage(msg).
+			setPositiveButton("确定", new DialogInterface.OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					// TODO Auto-generated method stub
+					
+				}
+			}).create().show();
+    		return satisfaction;
+    	}
+    	//清空post请求参数
+       	clearPostData();
+      //数据格式正确，保存在postData中
+	   	   
+	    
+       
+         postData.add(new BasicNameValuePair("username", user));
+         postData.add(new BasicNameValuePair("password", pwd));  
+//	         System.out.print(entry.getValue());  
+	      
+    	
+    	return satisfaction;
 	}
     public Boolean checkRegistInfo() {
     	
@@ -261,12 +356,14 @@ public class LoginAndRegistActivity extends Activity {
 			}).create().show();
     		return satisfaction;
     	}
+    	//清空post请求参数
+       	clearPostData();
     	//数据格式正确，保存在postData中
-	   	 postData = new ArrayList<BasicNameValuePair>();  
-	    
-         postData.add(new BasicNameValuePair("email", email));  
-         postData.add(new BasicNameValuePair("username", user));
-         postData.add(new BasicNameValuePair("password", pwd));  
+		 
+		
+		 postData.add(new BasicNameValuePair("email", email));  
+		 postData.add(new BasicNameValuePair("username", user));
+		 postData.add(new BasicNameValuePair("password", pwd));  
 //	         System.out.print(entry.getValue());  
 	      
     	

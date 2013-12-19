@@ -11,5 +11,5 @@ public class GlobalParameter {
 	public static String apiKey = "r8S7k8XnPDVG9UWjs0Sfeiaf";
 	
 	public static String REGIST_BASEURL = "http://discountsbar.sinaapp.com/accessControl/regist";
-
+	public static String LOGIN_BASEURL = "http://discountsbar.sinaapp.com/accessControl/login";
 }
