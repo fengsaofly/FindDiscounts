@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:gravity="center" android:background="#fffafafa" android:layout_width="106.0dip" android:layout_height="45.0dip"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <RelativeLayout android:gravity="center" android:background="@drawable/classification_class_item_selector" android:layout_width="fill_parent" android:layout_height="fill_parent">
-        <TextView android:textColor="@color/classification_class_text_color_item_selector" android:id="@id/small_text_image" android:background="@drawable/classification_class_item_selector" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="dddd" />
-        <TextView android:textColor="@color/classification_class_text_color_item_selector" android:id="@id/small_size_image" android:background="@drawable/classification_class_item_selector" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="123" android:layout_toRightOf="@id/small_text_image" />
-    </RelativeLayout>
-</RelativeLayout>

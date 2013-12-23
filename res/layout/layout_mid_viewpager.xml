@@ -26,7 +26,7 @@
             android:layout_gravity="center_vertical"
             android:clickable="true"
             android:padding="15.0dip"
-            android:src="@drawable/dot" />
+            android:src="@layout/dot" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
             android:layout_gravity="center_vertical"
             android:clickable="true"
             android:padding="15.0dip"
-            android:src="@drawable/dot" />
+            android:src="@layout/dot" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -42,7 +42,7 @@
             android:layout_gravity="center_vertical"
             android:clickable="true"
             android:padding="15.0dip"
-            android:src="@drawable/dot" />
+            android:src="@layout/dot" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -50,7 +50,7 @@
             android:layout_gravity="center_vertical"
             android:clickable="true"
             android:padding="15.0dip"
-            android:src="@drawable/dot" />
+            android:src="@layout/dot" />
     </LinearLayout>
   
 </RelativeLayout>

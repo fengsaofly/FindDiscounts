@@ -55,6 +55,7 @@ import android.widget.SlidingDrawer;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.utils.GlobalParameter;
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
@@ -287,10 +288,10 @@ public class LocationOverlayDemo extends Activity implements MKOfflineMapListene
 					public void onItemClick(AdapterView<?> arg0, View arg1,
 							int position, long arg3) {
 						 LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
-						 layout = inflater.inflate(R.layout.alertdialogview, (ViewGroup) findViewById(R.id.alertDialogLayout));//加载离线地图的布局文件
-						 layout2 = inflater.inflate(R.layout.alertdialogview_edittext, (ViewGroup) findViewById(R.id.settinglayout));//加载设置的布局文件
-						 layout3 = inflater.inflate(R.layout.alertdialogview_listview, (ViewGroup) findViewById(R.id.listlayout));//加载设置的布局文件
-						 layout4 = inflater.inflate(R.layout.alertdialogview_listview_search, (ViewGroup) findViewById(R.id.searchlayout));//加载设置的布局文件
+//						 layout = inflater.inflate(R.layout.alertdialogview, (ViewGroup) findViewById(R.id.alertDialogLayout));//加载离线地图的布局文件
+//						 layout2 = inflater.inflate(R.layout.alertdialogview_edittext, (ViewGroup) findViewById(R.id.settinglayout));//加载设置的布局文件
+//						 layout3 = inflater.inflate(R.layout.alertdialogview_listview, (ViewGroup) findViewById(R.id.listlayout));//加载设置的布局文件
+//						 layout4 = inflater.inflate(R.layout.alertdialogview_listview_search, (ViewGroup) findViewById(R.id.searchlayout));//加载设置的布局文件
 						
 						// TODO Auto-generated method stub
 						switch(position){
@@ -362,10 +363,10 @@ public class LocationOverlayDemo extends Activity implements MKOfflineMapListene
 							break;
 						case 1:  //搜索
 
-							searchWord = (EditText)layout4.findViewById(R.id.searchWord);
-							ok = (Button)layout4.findViewById(R.id.ok);
-							
-			                searchList = (ListView)layout4.findViewById(R.id.searchList);
+//							searchWord = (EditText)layout4.findViewById(R.id.searchWord);
+//							ok = (Button)layout4.findViewById(R.id.ok);
+//							
+//			                searchList = (ListView)layout4.findViewById(R.id.searchList);
 							searchResult = new ArrayList<Map<String,Object>>();
 							
 							for(int i=0;i<1;i++){
@@ -409,13 +410,13 @@ public class LocationOverlayDemo extends Activity implements MKOfflineMapListene
 							break;
 						case 3: //离线地图
 				
-							cid = (TextView)layout.findViewById(R.id.cid);
-							  et = (EditText)layout.findViewById(R.id.editview);
-							  search = (Button)layout.findViewById(R.id.search);
-							  start = (Button)layout.findViewById(R.id.start);
-							  stop = (Button)layout.findViewById(R.id.stop);
-							  ratio = (TextView)layout.findViewById(R.id.ratio);
-							  alreadyDownloadList = (ListView)layout.findViewById(R.id.alreadyDownloadList);
+//							cid = (TextView)layout.findViewById(R.id.cid);
+//							  et = (EditText)layout.findViewById(R.id.editview);
+//							  search = (Button)layout.findViewById(R.id.search);
+//							  start = (Button)layout.findViewById(R.id.start);
+//							  stop = (Button)layout.findViewById(R.id.stop);
+//							  ratio = (TextView)layout.findViewById(R.id.ratio);
+//							  alreadyDownloadList = (ListView)layout.findViewById(R.id.alreadyDownloadList);
 							  alreadyDownloadList.setAdapter(lAdapter);
 							  cid.setText("当前城市id: "+cityId);
 						       et.setText(sp.getString("cityName", ""));
@@ -475,39 +476,39 @@ public class LocationOverlayDemo extends Activity implements MKOfflineMapListene
 						case 4:  //设置
 							//LayoutInflater inflater2 = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
 							
-							final EditText e = (EditText)layout2.findViewById(R.id.scope);
-							ab2 = new AlertDialog.Builder(LocationOverlayDemo.this);
-							ab2.setTitle("FindDiscount");
-							ab2.setMessage("设置搜索范围");
-							ab2.setView(layout2);
-							ab2.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-								
-								@Override
-								public void onClick(DialogInterface dialog, int which) {
-									// TODO Auto-generated method stub
-									if(e.getText().toString().equals("")||e.getText().toString().contains(".")||(!e.getText().toString().matches("^[-+]?(([0-9]+)([.]([0-9]+))?|([.]([0-9]+))?)$"))){
-										Toast.makeText(mContext, "你的输入有误，请重新输入！（请输入整数）", Toast.LENGTH_SHORT).show();
-									}
-									else {
-	
-									SharedPreferences.Editor editor = sp.edit();
-									editor.putInt("scope", Integer.parseInt(e.getText().toString()));
-									System.out.println("1233");
-									Toast.makeText(mContext, "设置成功", Toast.LENGTH_SHORT).show();
-									editor.commit();
-									}
-								}
-							});
-							ab2.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-								
-								@Override
-								public void onClick(DialogInterface dialog, int which) {
-									// TODO Auto-generated method stub
-									
-								}
-							});
-							ad2 = ab2.create();
-							ad2.show();
+//							final EditText e = (EditText)layout2.findViewById(R.id.scope);
+//							ab2 = new AlertDialog.Builder(LocationOverlayDemo.this);
+//							ab2.setTitle("FindDiscount");
+//							ab2.setMessage("设置搜索范围");
+//							ab2.setView(layout2);
+//							ab2.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+//								
+//								@Override
+//								public void onClick(DialogInterface dialog, int which) {
+//									// TODO Auto-generated method stub
+//									if(e.getText().toString().equals("")||e.getText().toString().contains(".")||(!e.getText().toString().matches("^[-+]?(([0-9]+)([.]([0-9]+))?|([.]([0-9]+))?)$"))){
+//										Toast.makeText(mContext, "你的输入有误，请重新输入！（请输入整数）", Toast.LENGTH_SHORT).show();
+//									}
+//									else {
+//	
+//									SharedPreferences.Editor editor = sp.edit();
+//									editor.putInt("scope", Integer.parseInt(e.getText().toString()));
+//									System.out.println("1233");
+//									Toast.makeText(mContext, "设置成功", Toast.LENGTH_SHORT).show();
+//									editor.commit();
+//									}
+//								}
+//							});
+//							ab2.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+//								
+//								@Override
+//								public void onClick(DialogInterface dialog, int which) {
+//									// TODO Auto-generated method stub
+//									
+//								}
+//							});
+//							ad2 = ab2.create();
+//							ad2.show();
 							
 							//Toast.makeText(LocationOverlayDemo.this, "设置", Toast.LENGTH_SHORT).show();
 							break;
@@ -529,7 +530,7 @@ public class LocationOverlayDemo extends Activity implements MKOfflineMapListene
                     		list.add(map);
                     	
                 		}
-        				adapter = new SimpleAdapter(LocationOverlayDemo.this, list, R.layout.item, new String[]{"name"}, new int[]{R.id.ItemText});
+//        				adapter = new SimpleAdapter(LocationOverlayDemo.this, list, R.layout.item, new String[]{"name"}, new int[]{R.id.ItemText});
                 		lv.setAdapter(adapter);
                 		adapter.notifyDataSetChanged();
                 		
@@ -550,7 +551,7 @@ public class LocationOverlayDemo extends Activity implements MKOfflineMapListene
                     		list.add(map);
                     	
                 		}
-        				adapter = new SimpleAdapter(LocationOverlayDemo.this, list, R.layout.item, new String[]{"name"}, new int[]{R.id.ItemText});
+//        				adapter = new SimpleAdapter(LocationOverlayDemo.this, list, R.layout.item, new String[]{"name"}, new int[]{R.id.ItemText});
                 		lv.setAdapter(adapter);
                 		
         			}
@@ -927,8 +928,8 @@ Handler handler = new Handler(){
 	 * 创建弹出泡泡图层
 	 */
 	public void createPaopao(){
-		viewCache = getLayoutInflater().inflate(R.layout.custom_text_view, null);
-        popupText =(TextView) viewCache.findViewById(R.id.textcache);
+//		viewCache = getLayoutInflater().inflate(R.layout.custom_text_view, null);
+//        popupText =(TextView) viewCache.findViewById(R.id.textcache);
         //泡泡点击响应回调
         PopupClickListener popListener = new PopupClickListener(){
 			@Override
@@ -1510,17 +1511,20 @@ Handler handler = new Handler(){
 		@Override
 		public View getView(int index, View view, ViewGroup arg2) {
 			MKOLUpdateElement e = (MKOLUpdateElement) getItem(index);
-		    view = View.inflate(LocationOverlayDemo.this, R.layout.offline_localmap_list,null);
+//		    view = View.inflate(LocationOverlayDemo.this, R.layout.offline_localmap_list,null);
 		    initViewItem(view,e);
 			return view;
 		}
 		
 		void initViewItem(View view , final MKOLUpdateElement e){
-			Button display = (Button)view.findViewById(R.id.display);
-			Button remove  = (Button)view.findViewById(R.id.remove); 
+//			Button display = (Button)view.findViewById(R.id.display);
+//			Button remove  = (Button)view.findViewById(R.id.remove); 
 			TextView title = (TextView)view.findViewById(R.id.title);
-			TextView update = (TextView)view.findViewById(R.id.update);
-			TextView ratio = (TextView)view.findViewById(R.id.ratio);
+//			TextView update = (TextView)view.findViewById(R.id.update);
+//			TextView ratio = (TextView)view.findViewById(R.id.ratio);
+			TextView update =null;
+			Button display=null ;
+			Button remove=null;
 			ratio.setText(e.ratio+"%");
 			title.setText(e.cityName);
 			if ( e.update){

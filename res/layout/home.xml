@@ -8,7 +8,7 @@
 	<FrameLayout android:layout_gravity="center_horizontal" android:id="@id/top" android:background="@drawable/nav_backimg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true">
         <TextView android:layout_gravity="right" android:id="@id/action" android:background="@anim/search_btn_bg" android:layout_width="32.0dip" android:layout_height="30.0dip" android:layout_marginTop="5.0dip" android:layout_marginRight="5.0dip" />
         <TextView android:layout_gravity="left|center" android:id="@id/mall_refresh" android:background="@anim/top_right_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="2.0dip" />
-        <TextView android:textColor="#ffffffff" android:gravity="center" android:id="@id/back" android:background="@drawable/back_selector" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="编辑" android:layout_alignParentLeft="true" />
+        <TextView android:textColor="#ffffffff" android:gravity="center" android:id="@id/back" android:background="@layout/back_selector" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="编辑" android:layout_alignParentLeft="true" />
         <TextView
             android:id="@id/back_to"
             style="@style/left_back_TextView"
@@ -107,30 +107,21 @@
     </LinearLayout>
     </LinearLayout>
 
-            <RelativeLayout
-                android:id="@id/point_layout"
-                android:layout_width="fill_parent"
-                android:layout_height="18.0dip"
-                android:layout_below="@id/hide"
-                android:layout_marginTop="-15.0dip" >
-
-                <ImageView android:id="@id/point" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
-            </RelativeLayout>
-            <RelativeLayout android:id="@id/metro" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/point_layout" />           
-            <RelativeLayout   android:id="@+id/home_listview_layout" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:layout_below="@id/metro"> 
+           
+              <RelativeLayout   android:id="@+id/home_listview_layout" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/hide"> 
 
 				<ListView
 				    android:id="@+id/home_listview"
 				    android:layout_width="fill_parent"
 				    android:layout_height="wrap_content"
 				    android:layout_marginLeft="1.0dip"
-				    android:layout_marginRight="1.0dip"
-				    android:layout_marginTop="1.0dip"
+				    android:layout_marginRight="1.0dip"				
 				    android:cacheColorHint="#ffffffff"
 				    android:divider="#ffb4b4b4"
 				    android:dividerHeight="1.0dip"
 				    android:fadingEdge="none" 
-				    android:scrollbars="vertical"/>
+				    android:scrollbars="vertical"
+				    android:descendantFocusability="afterDescendants"/>
 
             </RelativeLayout>
              <RelativeLayout android:id="@id/xxxxxx" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/home_listview_layout" >

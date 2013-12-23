@@ -1,4 +1,4 @@
-package com.android.testbaiduapi;
+package com.android.utils;
 
 public class GlobalParameter {
 	
@@ -12,4 +12,7 @@ public class GlobalParameter {
 	
 	public static String REGIST_BASEURL = "http://discountsbar.sinaapp.com/accessControl/regist";
 	public static String LOGIN_BASEURL = "http://discountsbar.sinaapp.com/accessControl/login";
+	
+	public static int FIRST_PAGE = 0;
+	public static int SECOND_PAGE = 1;
 }

@@ -2,13 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	    android:id="@+id/home_viewpager_layout"   
 	    android:layout_width="wrap_content" 
-	    android:layout_height="134dip" >
+	    android:layout_height="134dip" 
+	    >
 	    
     <android.support.v4.view.ViewPager
         android:id="@+id/middleviewpager"
         android:layout_width="match_parent"
         android:layout_height="134dip"
         android:layout_alignParentLeft="true"
+        
     >
     </android.support.v4.view.ViewPager>
 
@@ -26,7 +28,7 @@
             android:layout_gravity="center_vertical"
             android:clickable="true"
             android:padding="15.0dip"
-            android:src="@drawable/dot" />
+            android:src="@layout/dot" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -34,7 +36,7 @@
             android:layout_gravity="center_vertical"
             android:clickable="true"
             android:padding="15.0dip"
-            android:src="@drawable/dot" />
+            android:src="@layout/dot" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -42,7 +44,7 @@
             android:layout_gravity="center_vertical"
             android:clickable="true"
             android:padding="15.0dip"
-            android:src="@drawable/dot" />
+            android:src="@layout/dot" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -50,7 +52,7 @@
             android:layout_gravity="center_vertical"
             android:clickable="true"
             android:padding="15.0dip"
-            android:src="@drawable/dot" />
+            android:src="@layout/dot" />
     </LinearLayout>
   
 </RelativeLayout>

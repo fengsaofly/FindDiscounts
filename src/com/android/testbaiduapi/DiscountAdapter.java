@@ -73,11 +73,11 @@ public class DiscountAdapter extends BaseAdapter{
 	    		
 	    		ViewHolder holder = null;
 	    		if (view == null) {
-	    			view = this.lif.inflate(R.layout.discountitem, null);
-	    			holder = new ViewHolder();
-	    			holder.scan = (Button)view.findViewById(R.id.scan);
-	    			holder.daohang = (Button)view.findViewById(R.id.daohang);
-	    			holder.address = (TextView)view.findViewById(R.id.discountitem);
+//	    			view = this.lif.inflate(R.layout.discountitem, null);
+//	    			holder = new ViewHolder();
+//	    			holder.scan = (Button)view.findViewById(R.id.scan);
+//	    			holder.daohang = (Button)view.findViewById(R.id.daohang);
+//	    			holder.address = (TextView)view.findViewById(R.id.discountitem);
 	    			
 	    			
 	    			view.setTag(holder);

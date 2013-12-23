@@ -26,10 +26,14 @@ public class DiscountBaseAdapter extends BaseAdapter {
 	List<Map<String, Object>> list=null;
 	ArrayList<String> keys = new ArrayList<String>();
 	ArrayList<Integer> ids = new ArrayList<Integer>();
-	public DiscountBaseAdapter(Context	context) {
-		// TODO Auto-generated constructor stub
+	int field;//表示针对哪个页面进行赋值
+	ViewHolder holder = null;
+	public DiscountBaseAdapter(Context	context, Activity act,List<Map<String, Object>> list,int type) {
 		super();
 		this.context = context;
+		this.activity = act;
+		this.list = list;
+		this.field = type;
 	}
 	public DiscountBaseAdapter(Context	context,Activity act,List<Map<String, Object>> list,String[] strKeys,int[] intIds) {
 		// TODO Auto-generated constructor stub
@@ -70,7 +74,7 @@ public class DiscountBaseAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
+        
         if (convertView == null) {
             if (getItemViewType(position) == 0) {
                 convertView = LayoutInflater.from(context).inflate(R.layout.viewpager_layout, null);
@@ -78,35 +82,46 @@ public class DiscountBaseAdapter extends BaseAdapter {
             else {
 		        convertView = LayoutInflater.from(context).inflate(R.layout.friendlink_item, null);
 		    }
-            holder = new ViewHolder();
-            holder.title = (TextView) convertView.findViewById(R.id.discount_name);
-            holder.title.setText(list.get(position).get("discount_name").toString());
-            holder.content = (TextView) convertView.findViewById(R.id.discount_description);
-            holder.content.setText(list.get(position).get("discount_description").toString());
-            holder.imageView = (ImageView) convertView.findViewById(R.id.app_icon);
-            holder.imageView.setImageDrawable(activity.getResources().getDrawable((Integer) list.get(position).get("app_icon")));
-            if (getItemViewType(position) == 0) {
-                //holder.imageView = (ImageView) convertView.findViewById(R.id.about_physique_info);
-                holder.viewPager=(ViewPager)convertView.findViewById(R.id.middleviewpager);
-                ArrayList<View> views = new ArrayList<View>();
-          		
-          		
-                LayoutInflater inflater = LayoutInflater.from(context);
-           			views.add(inflater.inflate(R.layout.what_new_one, null));
-           			views.add(inflater.inflate(R.layout.what_new_two, null));
-           			views.add(inflater.inflate(R.layout.what_new_three, null));
-           			views.add(inflater.inflate(R.layout.what_new_four, null));
-           	
+            
+            if(field == GlobalParameter.FIRST_PAGE){
+                if (getItemViewType(position) == 0) {
+                	holder = new ViewHolder();
+                    //holder.imageView = (ImageView) convertView.findViewById(R.id.about_physique_info);
+                    holder.viewPager=(ViewPager)convertView.findViewById(R.id.middleviewpager);
+                    ArrayList<View> views = new ArrayList<View>();
+              		
+              		
+                    LayoutInflater inflater = LayoutInflater.from(context);
+               			views.add(inflater.inflate(R.layout.what_new_one, null));
+               			views.add(inflater.inflate(R.layout.what_new_two, null));
+               			views.add(inflater.inflate(R.layout.what_new_three, null));
+               			views.add(inflater.inflate(R.layout.what_new_four, null));
+               	
 
-           		// 初始化Adapter
-           		
-           		MiddleViewPageAdapter vpAdapter = new MiddleViewPageAdapter(views, activity);
-           		
-           		
-           		holder.viewPager.setAdapter(vpAdapter);
-//                holder.viewPager.setAdapter(arg0);
-                //holder.imageView.setOnClickListener(onClickListener);
+               		// 初始化Adapter
+               		
+               		MiddleViewPageAdapter vpAdapter = new MiddleViewPageAdapter(views, activity);
+               		
+               		
+               		holder.viewPager.setAdapter(vpAdapter);
+//                    holder.viewPager.setAdapter(arg0);
+                    //holder.imageView.setOnClickListener(onClickListener);
+                }
+                else{
+                	holder = new ViewHolder();
+		            holder.title = (TextView) convertView.findViewById(R.id.discount_name);
+		            holder.title.setText(list.get(position-1).get("discount_name").toString());
+		            holder.content = (TextView) convertView.findViewById(R.id.discount_description);
+		            holder.content.setText(list.get(position-1).get("discount_description").toString());
+		            holder.imageView = (ImageView) convertView.findViewById(R.id.app_icon);
+		            holder.imageView.setImageDrawable(activity.getResources().getDrawable((Integer) list.get(position-1).get("app_icon")));
+            
+                }
             }
+            else if(field == GlobalParameter.SECOND_PAGE){
+            	;
+            }
+     
             convertView.setTag(holder);
 		}
         else {
@@ -119,7 +134,7 @@ public class DiscountBaseAdapter extends BaseAdapter {
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-		return list.size();
+		return list.size()+1;
 	}
 	@Override
 	public Object getItem(int position) {

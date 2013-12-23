@@ -42,12 +42,12 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.testbaiduapi.GlobalParameter;
 import com.android.testbaiduapi.JsonParser;
 import com.android.testbaiduapi.R;
 import com.android.testbaiduapi.m_Discount;
 import com.android.testbaiduapi.m_Shop;
 import com.android.utils.DiscountBaseAdapter;
+import com.android.utils.GlobalParameter;
 import com.androidui.DiscountInfoActivity;
 import com.androidui.MiddleViewPageAdapter;
 import com.baidu.location.BDLocation;
@@ -250,16 +250,16 @@ public class NewDiscountFragment extends Fragment{
 //  		 adapter = new SimpleAdapter(getActivity(),list,R.layout.friendlink_item,
 //				new String[]{"discount_name","discount_description","discount_distance","app_icon"},
 //				new int[]{R.id.discount_name,R.id.discount_description,R.id.discount_distance,R.id.app_icon});
-  		DiscountBaseAdapter discountAdapter = new DiscountBaseAdapter(getActivity(),getActivity(),list,
-  				new String[]{"discount_name","discount_description","discount_distance","app_icon"},
-				new int[]{R.id.discount_name,R.id.discount_description,R.id.discount_distance,R.id.app_icon});
-  		listview.setAdapter(discountAdapter);
+  		
 		listview.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 					long arg3) {
 				// TODO Auto-generated method stub
+				if(position == 0){
+					return;
+				}
 				Intent intent  = new Intent();
 				intent.setClass(getActivity(),DiscountInfoActivity.class);
 				
@@ -338,13 +338,15 @@ public class NewDiscountFragment extends Fragment{
         	switch(msg.what){
         	case 1:
         		
-				int next = (currentIndex + 1) % views.size(); 
+//				int next = (currentIndex + 1) % views.size(); 
 				
-				vp.setCurrentItem(next);
-				setCurrentDot(next);
+//				vp.setCurrentItem(next);
+//				setCurrentDot(next);
         		break;
         	case 2:
-        		 adapter.notifyDataSetChanged();
+//        		 adapter.notifyDataSetChanged();
+        		 DiscountBaseAdapter discountAdapter = new DiscountBaseAdapter(getActivity(),getActivity(),list,GlobalParameter.FIRST_PAGE);
+          		 listview.setAdapter(discountAdapter);
         		 break;
         	}
         	super.handleMessage(msg);
@@ -553,7 +555,7 @@ public void queryShops(){ //查询附近或搜索出来的打折商家信息
 				            		map.put("discount_description", jp.getShops().get(i).getM_shop_type());
 				            		
 				            		map.put("discount_distance", ""+calculateDistance(locData.latitude,locData.longitude,jp.getShops().get(i).getM_shop_latitude(),jp.getShops().get(i).getM_shop_longitude())+"米");
-				            		map.put("app_icon", R.drawable.home_bottom_home);
+				            		map.put("app_icon", R.drawable.discountsbar_logo);
 				            		list.add(map);
 //		                	System.out
 //									.println(jp.getShops().get(i).getM_shop_name()+jp.getShops().get(i).getM_shop_id()+jp.getShops().get(i).getM_shop_addr()+"---\n");
@@ -587,11 +589,6 @@ public void queryShops(){ //查询附近或搜索出来的打折商家信息
 }
 	
 
-	class DiscountAdapter{
-		
-	}
-
-  
 	
 
 

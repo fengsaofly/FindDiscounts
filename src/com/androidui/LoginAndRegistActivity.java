@@ -34,9 +34,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.android.testbaiduapi.GlobalParameter;
 import com.android.testbaiduapi.R;
 import com.android.utils.GeneralFunctions;
+import com.android.utils.GlobalParameter;
 
 public class LoginAndRegistActivity extends Activity {
 	
@@ -308,7 +308,7 @@ public class LoginAndRegistActivity extends Activity {
       //数据格式正确，保存在postData中
 	   	   
 	    
-       
+       	 postData.add(new BasicNameValuePair("ak", GlobalParameter.serverKey));
          postData.add(new BasicNameValuePair("username", user));
          postData.add(new BasicNameValuePair("password", pwd));  
 //	         System.out.print(entry.getValue());  
@@ -360,7 +360,7 @@ public class LoginAndRegistActivity extends Activity {
        	clearPostData();
     	//数据格式正确，保存在postData中
 		 
-		
+       	 postData.add(new BasicNameValuePair("ak", GlobalParameter.serverKey));
 		 postData.add(new BasicNameValuePair("email", email));  
 		 postData.add(new BasicNameValuePair("username", user));
 		 postData.add(new BasicNameValuePair("password", pwd));  

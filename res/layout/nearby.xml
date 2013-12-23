@@ -5,7 +5,7 @@
         <FrameLayout android:layout_gravity="center_horizontal" android:id="@id/top" android:background="@drawable/nav_backimg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true">
         <TextView android:layout_gravity="right" android:id="@id/action" android:background="@anim/search_btn_bg" android:layout_width="32.0dip" android:layout_height="30.0dip" android:layout_marginTop="5.0dip" android:layout_marginRight="5.0dip" />
         <TextView android:layout_gravity="left|center" android:id="@id/mall_refresh" android:background="@anim/top_right_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="2.0dip" />
-        <TextView android:textColor="#ffffffff" android:gravity="center" android:id="@id/back" android:background="@drawable/back_selector" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="编辑" android:layout_alignParentLeft="true" />
+        <TextView android:textColor="#ffffffff" android:gravity="center" android:id="@id/back" android:background="@layout/back_selector" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="编辑" android:layout_alignParentLeft="true" />
         <TextView
             android:id="@id/back_to"
             style="@style/left_back_TextView"
@@ -63,7 +63,7 @@
             android:layout_gravity="center_vertical"
             android:clickable="true"
             android:padding="15.0dip"
-            android:src="@drawable/dot" />
+            android:src="@layout/dot" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -71,7 +71,7 @@
             android:layout_gravity="center_vertical"
             android:clickable="true"
             android:padding="15.0dip"
-            android:src="@drawable/dot" />
+            android:src="@layout/dot" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -79,7 +79,7 @@
             android:layout_gravity="center_vertical"
             android:clickable="true"
             android:padding="15.0dip"
-            android:src="@drawable/dot" />
+            android:src="@layout/dot" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -87,7 +87,7 @@
             android:layout_gravity="center_vertical"
             android:clickable="true"
             android:padding="15.0dip"
-            android:src="@drawable/dot" />
+            android:src="@layout/dot" />
     </LinearLayout>
   
       		</RelativeLayout>
