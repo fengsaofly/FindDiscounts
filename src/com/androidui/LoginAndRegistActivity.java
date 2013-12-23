@@ -132,6 +132,7 @@ public class LoginAndRegistActivity extends Activity {
 			//登录成功
 			case 0:
 				showTab(0);//显示登录信息
+				System.out.println(msg.obj);
 				break;
 			//注册成功
 			case 1:

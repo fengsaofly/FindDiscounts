@@ -6,15 +6,15 @@ import java.util.Map;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-
 
 import com.android.testbaiduapi.R;
 import com.androidui.MiddleViewPageAdapter;
@@ -28,6 +28,8 @@ public class DiscountBaseAdapter extends BaseAdapter {
 	ArrayList<Integer> ids = new ArrayList<Integer>();
 	int field;//表示针对哪个页面进行赋值
 	ViewHolder holder = null;
+	ViewPager viewPager = null;//用于保存viewpager，以便切换图片
+	Handler handler=null;
 	public DiscountBaseAdapter(Context	context, Activity act,List<Map<String, Object>> list,int type) {
 		super();
 		this.context = context;
@@ -35,20 +37,13 @@ public class DiscountBaseAdapter extends BaseAdapter {
 		this.list = list;
 		this.field = type;
 	}
-	public DiscountBaseAdapter(Context	context,Activity act,List<Map<String, Object>> list,String[] strKeys,int[] intIds) {
+	public DiscountBaseAdapter(Context	context,Activity act,List<Map<String, Object>> list,int type ,Handler handler) {
 		// TODO Auto-generated constructor stub
 		super();
 		this.context = context;
 		this.activity = act;
 		this.list = list;
-		for(String key :strKeys){
-			keys.add(key);
-		}
-		
-		for(int id:intIds){
-			ids.add(id);
-		}
-		
+		this.handler = handler;
 	}
 	
 	
@@ -104,6 +99,10 @@ public class DiscountBaseAdapter extends BaseAdapter {
                		
                		
                		holder.viewPager.setAdapter(vpAdapter);
+               		viewPager = holder.viewPager;//保存viewPager
+               		Message msg = handler.obtainMessage(3, viewPager);
+               		handler.sendMessage(msg);
+//               		this.setViewPager(holder.viewPager);
 //                    holder.viewPager.setAdapter(arg0);
                     //holder.imageView.setOnClickListener(onClickListener);
                 }
@@ -140,6 +139,12 @@ public class DiscountBaseAdapter extends BaseAdapter {
 	public Object getItem(int position) {
 		// TODO Auto-generated method stub
 		return list.get(position);
+	}
+	public ViewPager getViewPager(){
+		return holder.viewPager;
+	}
+	public void setViewPager(ViewPager vp) {
+		this.viewPager = vp;
 	}
 }
 

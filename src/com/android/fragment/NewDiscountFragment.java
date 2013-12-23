@@ -158,7 +158,7 @@ public class NewDiscountFragment extends Fragment{
     	//  getDiscountInformation();
     	  list = new ArrayList<Map<String, Object>>();
     	  ll = (LinearLayout)view.findViewById(R.id.ll);
-    	  vp = (ViewPager)view.findViewById(R.id.middleviewpager);
+//    	  vp = (ViewPager)view.findViewById(R.id.middleviewpager);
     	  title = (TextView)view.findViewById(R.id.title);
           title.setText(R.string.app_name);
           hide = (LinearLayout)view.findViewById(R.id.hide);
@@ -230,21 +230,7 @@ public class NewDiscountFragment extends Fragment{
 //  		vp.setAdapter(this.vpAdapter);
 //  		initDots();
   		
-  		new Thread(new Runnable() {
-			
-			@Override
-			public void run() {
-				// TODO Auto-generated method stub
-				while(true){
-					try{
-						Thread.sleep(2000);
-						handler.sendEmptyMessage(1);
-					}catch(Exception e){
-						e.printStackTrace();
-					}
-				}
-			}
-		}).start();	
+  		
   		
   		listview = (ListView) view.findViewById(R.id.home_listview);
 //  		 adapter = new SimpleAdapter(getActivity(),list,R.layout.friendlink_item,
@@ -338,22 +324,54 @@ public class NewDiscountFragment extends Fragment{
         	switch(msg.what){
         	case 1:
         		
-//				int next = (currentIndex + 1) % views.size(); 
+        		
+				int next = (currentIndex + 1) % 4;//views.size(); 
 				
-//				vp.setCurrentItem(next);
+				vp.setCurrentItem(next);
+				currentIndex = next;
 //				setCurrentDot(next);
         		break;
         	case 2:
 //        		 adapter.notifyDataSetChanged();
-        		 DiscountBaseAdapter discountAdapter = new DiscountBaseAdapter(getActivity(),getActivity(),list,GlobalParameter.FIRST_PAGE);
+        		 DiscountBaseAdapter discountAdapter = new DiscountBaseAdapter(getActivity(),getActivity(),list,GlobalParameter.FIRST_PAGE,handler);
           		 listview.setAdapter(discountAdapter);
+//          		 vp = discountAdapter.getViewPager();
+//          		View convertView = LayoutInflater.from(getActivity()).inflate(R.layout.viewpager_layout, null);
+//          		vp = (ViewPager)convertView.findViewById(R.id.middleviewpager);
+//          		vp.setCurrentItem(2);
+          	
+          		
+          		 
         		 break;
+        	case 3:
+        		vp = (ViewPager)msg.obj;
+        		startViewPager();	
+//        		vp.setCurrentItem(2);
+        		break;
         	}
         	super.handleMessage(msg);
            // vp.setCurrentItem(currentIndex);// 切换当前显示的图片  
         } 
     }; 
-    
+    public void startViewPager() {
+    	new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				while(true){
+					try{
+						Thread.sleep(2000);
+//						handler.sendEmptyMessage(1);
+						vp.setCurrentItem((currentIndex++)%4,true);
+						Log.i("vp", ""+currentIndex);
+					}catch(Exception e){
+						e.printStackTrace();
+					}
+				}
+			}
+		}).start();
+	}
     public  double calculateDistance(double lat_a, double lng_a, double lat_b, double lng_b) { //根据两点的精度和纬度计算距离
 	       double radLat1 = (lat_a * Math.PI / 180.0);
 	       double radLat2 = (lat_b * Math.PI / 180.0);
