@@ -15,4 +15,8 @@ public class GlobalParameter {
 	
 	public static int FIRST_PAGE = 0;
 	public static int SECOND_PAGE = 1;
+	
+	public static final int LOGIN_SUCCESS = 0; 
+		
+	
 }

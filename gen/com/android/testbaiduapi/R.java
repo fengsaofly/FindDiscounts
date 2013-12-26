@@ -696,7 +696,7 @@ public final class R {
         public static final int about_icon=0x7f0801c3;
         public static final int account_balance=0x7f080432;
         public static final int action=0x7f0801da;
-        public static final int action_settings=0x7f0805d9;
+        public static final int action_settings=0x7f0805da;
         public static final int activ_buy_num_layout=0x7f080049;
         public static final int activ_goods_buy_num=0x7f08004d;
         public static final int activ_goods_discount=0x7f08004a;
@@ -1132,9 +1132,10 @@ public final class R {
         public static final int gototop=0x7f08051c;
         public static final int gps_layout=0x7f0801a7;
         public static final int gps_location_layout=0x7f0801a9;
-        public static final int grid_item_discount_type=0x7f0805d0;
+        public static final int grid_item_discount_type=0x7f0805cf;
         public static final int grid_item_image=0x7f0805a6;
         public static final int grid_item_name=0x7f0805a7;
+        public static final int grid_item_shop_name=0x7f0805d0;
         public static final int group=0x7f080325;
         public static final int group_list_item_text=0x7f0801ab;
         public static final int group_list_title_text=0x7f0801ad;
@@ -1160,7 +1161,7 @@ public final class R {
         public static final int home_bottom_location_img=0x7f0805c8;
         public static final int home_listview=0x7f0805c5;
         public static final int home_listview_layout=0x7f0805c4;
-        public static final int home_viewpager_layout=0x7f0805ce;
+        public static final int home_viewpager_layout=0x7f0805d7;
         public static final int hot_list1=0x7f0804d8;
         public static final int hot_list2=0x7f0804d9;
         public static final int hot_list3=0x7f0804da;
@@ -1201,7 +1202,7 @@ public final class R {
         public static final int iv_getImgCode=0x7f0803fc;
         public static final int iv_prompt_img=0x7f08053d;
         public static final int iv_start_app=0x7f08053e;
-        public static final int iv_start_weibo=0x7f0805d7;
+        public static final int iv_start_weibo=0x7f0805d8;
         public static final int jumei_mall_classification2_Gridview_layout=0x7f0801e9;
         public static final int jumei_mall_classification2_gallery=0x7f0801ea;
         public static final int jumei_mall_classification2_point_layout=0x7f0801ec;
@@ -1435,7 +1436,7 @@ public final class R {
         public static final int member_dialog=0x7f08030d;
         public static final int member_help=0x7f08030e;
         public static final int member_layout=0x7f08030a;
-        public static final int menu_settings=0x7f0805d8;
+        public static final int menu_settings=0x7f0805d9;
         public static final int metro=0x7f0801e6;
         public static final int middle_bt=0x7f080534;
         public static final int middleviewpager=0x7f0805cc;
@@ -1502,7 +1503,7 @@ public final class R {
         public static final int myenjoy_type=0x7f0805cd;
         public static final int name=0x7f08008d;
         public static final int nearBy=0x7f0805a0;
-        public static final int nearby_gridview=0x7f0805cf;
+        public static final int nearby_gridview=0x7f0805ce;
         public static final int newAddressBack=0x7f080380;
         public static final int newAddressGoto=0x7f080382;
         public static final int newAddressTitle=0x7f080381;

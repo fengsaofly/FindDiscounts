@@ -31,68 +31,9 @@
             <TextView android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="left|center" android:id="@id/discountLevelTextSelected" android:background="@drawable/smlbtn_page_selected" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:visibility="invisible" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="折扣" android:layout_toRightOf="@id/publishTimeTextSelected" android:layout_alignParentTop="true" />
         </RelativeLayout>
     </FrameLayout>
-        <RelativeLayout
-            android:id="@id/point_layout"
-            android:layout_width="fill_parent"
-            android:layout_height="18.0dip"
-            android:layout_marginTop="-15.0dip"
-            android:layout_below="@id/top" >
+       
+   <RelativeLayout android:id="@id/jumei_mall_classification_Gridview_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="14.0dip" android:layout_marginTop="5.0dip" android:layout_marginRight="14.0dip" android:layout_below="@id/tabButtonFrame">
 
-            <ImageView android:id="@id/point" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
-        </RelativeLayout>
-        <RelativeLayout android:id="@+id/home_viewpager_layout" android:layout_width="wrap_content" android:layout_height="134dip"  android:layout_below="@id/point_layout" >
-      		   <android.support.v4.view.ViewPager
-        android:id="@+id/middleviewpager"
-        android:layout_width="match_parent"
-        android:layout_height="134dip"
-        android:layout_alignParentLeft="true"
-    >
-    </android.support.v4.view.ViewPager>
-
-    <LinearLayout
-        android:id="@+id/ll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/middleviewpager"
-        android:layout_alignParentRight="true"
-        android:orientation="horizontal" >
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:clickable="true"
-            android:padding="15.0dip"
-            android:src="@layout/dot" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:clickable="true"
-            android:padding="15.0dip"
-            android:src="@layout/dot" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:clickable="true"
-            android:padding="15.0dip"
-            android:src="@layout/dot" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:clickable="true"
-            android:padding="15.0dip"
-            android:src="@layout/dot" />
-    </LinearLayout>
-  
-      		</RelativeLayout>
-        <RelativeLayout android:id="@id/jumei_mall_classification_Gridview_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="14.0dip" android:layout_marginTop="5.0dip" android:layout_marginRight="14.0dip" android:layout_below="@id/home_viewpager_layout">
-"
 <GridView android:id="@+id/nearby_gridview"
      android:layout_width="wrap_content" 
      android:layout_height="wrap_content"

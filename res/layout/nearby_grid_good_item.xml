@@ -25,6 +25,7 @@
 	    android:textColor="@color/TextColorRed" />
 
     <TextView
+        android:id="@+id/grid_item_shop_name"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="美特斯邦威限量卫衣" 

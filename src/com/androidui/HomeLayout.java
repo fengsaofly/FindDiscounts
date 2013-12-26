@@ -1,22 +1,24 @@
 package com.androidui;
 
+import java.util.HashMap;
+
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.android.fragment.MyDiscountFragment;
 import com.android.fragment.NearByFragment;
 import com.android.fragment.NewDiscountFragment;
 import com.android.fragment.ShopCarFragment;
 import com.android.testbaiduapi.R;
+import com.android.utils.GlobalParameter;
 
 public class HomeLayout extends FragmentActivity  {
 	private FragmentManager fManager;
@@ -29,6 +31,8 @@ public class HomeLayout extends FragmentActivity  {
 	private ImageView nearbyImage = null;
 	private ImageView cartImage = null;
 	private ImageView accountImage = null;
+	private HashMap<String, Object> userinfoMap= new HashMap<String, Object>();
+	private TextView userNameText;
 	
     	
     @Override 
@@ -99,7 +103,10 @@ public class HomeLayout extends FragmentActivity  {
 			
 			intent.putExtra("type","login");
 			intent.setClass(this,LoginAndRegistActivity.class);
-			startActivity(intent);
+			
+//			intent.setClass(this,LoginAndRegistActivity.class);
+			startActivityForResult(intent, GlobalParameter.LOGIN_SUCCESS);
+			
 			break;
 		 case R.id.regist_btn:
 
@@ -158,6 +165,34 @@ public class HomeLayout extends FragmentActivity  {
 		}
 		
 	}
+	/* 覆盖 onActivityResult()*/ 
+	  @Override
+	public void onActivityResult(int requestCode, int resultCode,  
+	                                  Intent data)  
+	  {  
+	    switch (resultCode)  
+	    {   
+	      case GlobalParameter.LOGIN_SUCCESS:  
+	        /* 取得来自Activity2的数据，并显示于画面上 */    
+//	        Bundle bunde = data.getExtras();  
+//	        String sex = bunde.getString("sex");  
+//	    	userinfoMap = (HashMap<String, Object>) data.getSerializableExtra("userinfo");
+	        String username =data.getStringExtra("userinfo");//userinfoMap.get("user_name").toString(); 
+	        System.out.println("username:"+username);
+	        
+//	        Fragment details;
+	        fManager.beginTransaction().add(R.id.main_part, MyDiscountFragment.newInstance(username)).commit();
+//	        details = NewDiscountFragment.newInstance();
+//			 fManager.beginTransaction().add(R.id.main_part, details).commit();
+//			 
+//			 
+//			 myButtonBgChanged(R.id.home);
+	        break;  
+	      default:  
+	        break;  
+	     }   
+	   }   
+
     
 
 

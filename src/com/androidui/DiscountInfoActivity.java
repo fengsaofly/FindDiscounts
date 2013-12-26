@@ -107,6 +107,9 @@ public class DiscountInfoActivity extends Activity {
 	
 	
 	public void initial(){
+//		 shopId=getIntent().getIntExtra("shopId", -1);
+		
+		
 		 
 		 new Thread(new Runnable() {
 			

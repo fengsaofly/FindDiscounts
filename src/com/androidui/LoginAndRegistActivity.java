@@ -3,6 +3,7 @@ package com.androidui;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.http.HttpResponse;
@@ -14,6 +15,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -34,6 +37,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.fragment.MyDiscountFragment;
 import com.android.testbaiduapi.R;
 import com.android.utils.GeneralFunctions;
 import com.android.utils.GlobalParameter;
@@ -55,7 +59,8 @@ public class LoginAndRegistActivity extends Activity {
 	EditText registUserPassValue = null,loginUserPass=null;
 	TextView registerBtn = null,loginButton=null;
 	
-	List<BasicNameValuePair> postData = new ArrayList<BasicNameValuePair>();;
+//	TextView userName = null;
+	List<BasicNameValuePair> postData = new ArrayList<BasicNameValuePair>();
 	
 	private static final String[] COUNTRIES = new String[] {
 	         "Belgium", "France", "Italy", "Germany", "Spain"
@@ -129,12 +134,21 @@ public class LoginAndRegistActivity extends Activity {
 	Handler handler = new Handler(){
 		public void handleMessage(Message msg){
 			switch(msg.what){
-			//登录成功
+			//登录
 			case 0:
-				showTab(0);//显示登录信息
-				System.out.println(msg.obj);
+			{
+				ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>)msg.obj;
+				 int status =(Integer) list.get(0).get("status");
+				switch(status){
+					case 0:
+						showUserInfo(list.get(1));
+//						showTab(0);//显示登录信息
+						break;
+				}
+//				System.out.println(msg.obj);
 				break;
-			//注册成功
+			}
+			//注册
 			case 1:
 				showTab(0);//显示登录界面
 				break;
@@ -148,19 +162,19 @@ public class LoginAndRegistActivity extends Activity {
 	private void clearPostData() {
 		postData.clear();
 	}
-	public void post(String url,final List<BasicNameValuePair> postData,final int type) {
+	public void post(final String url,final List<BasicNameValuePair> postData,final int type) {
 		new Thread(new Runnable() {
 			 
 			@Override
 			public void run() {
 				String strResult = "";
 				// TODO Auto-generated method stub
-				String url = GlobalParameter.REGIST_BASEURL;
+//				String url = GlobalParameter.REGIST_BASEURL;
 				HttpClient httpClient = new DefaultHttpClient();
 				HttpPost post = new HttpPost(url);
 //				DefaultHttpClient httpClient = new DefaultHttpClient();  
 //		        HttpPost post = new HttpPost(url);  
-		       
+				ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String,Object>>();
 		        UrlEncodedFormEntity entity;
 				try {
 					entity = new UrlEncodedFormEntity(postData,HTTP.UTF_8);
@@ -173,7 +187,19 @@ public class LoginAndRegistActivity extends Activity {
 				        if (response.getStatusLine().getStatusCode() == 200) {  
 				            // 取出回应字串  
 				            strResult = EntityUtils.toString(response.getEntity());  
-				            System.out.println(strResult);
+				            
+				            try {
+				            	list =  AnalysisJson(strResult);
+				            	
+//				            	System.out.println("status:"+(ArrayList<String>)list.get(0).get("status"));
+//				            	Log.d("status", list.get(0).get("status").toString());
+				            	
+				            	
+							} catch (JSONException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+//				            System.out.println(strResult);
 				            Message msg = handler.obtainMessage();
 				            if(type == REGIST_TYPE){
 				            	 msg.what=1;
@@ -181,7 +207,7 @@ public class LoginAndRegistActivity extends Activity {
 				            else if(type == LOGIN_TYPE){
 				            	msg.what = 0;
 				            }
-				            msg.obj = strResult;
+				            msg.obj = list;
 				            handler.sendMessage(msg);
 				            
 				        }  
@@ -211,6 +237,53 @@ public class LoginAndRegistActivity extends Activity {
 			}
 		}).start();
 	}
+	/**
+     * 解析
+     * 
+     * @throws JSONException
+     */
+    private  ArrayList<HashMap<String, Object>> AnalysisJson(String jsonStr)
+            throws JSONException {
+        /******************* 解析 ***********************/
+
+        JSONObject jsonObj = new JSONObject(jsonStr);
+        
+        // 初始化list数组对象
+        ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+        
+     
+            JSONObject statusArray = jsonObj.getJSONObject("status");
+            JSONObject userinfoArray = jsonObj.getJSONObject("userinfo");
+         
+            // 初始化map数组对象
+            HashMap<String, Object> statusMap = new HashMap<String, Object>();
+            //向list加入状态信息
+            statusMap.put("status", statusArray.getInt("status"));
+            statusMap.put("message", statusArray.getString("message"));
+            list.add(statusMap);
+            
+//            map.put("status", statusArray);
+            
+            //向list加入用户信息
+    	   if(userinfoArray!=null){
+    		   HashMap<String, Object> infoMap = new HashMap<String, Object>();
+    		   infoMap.put("user_id", userinfoArray.get("user_id"));
+    		   infoMap.put("user_class", userinfoArray.get("user_class"));
+    		   infoMap.put("user_name", userinfoArray.get("user_name"));
+    		   infoMap.put("user_password", userinfoArray.get("user_password"));
+    		   infoMap.put("user_currentlongitude", userinfoArray.get("user_currentlongitude"));
+    		   infoMap.put("user_currentlatitude", userinfoArray.get("user_currentlatitude"));
+    		   infoMap.put("profile_image_url", userinfoArray.get("profile_image_url"));
+    		   infoMap.put("user_email", userinfoArray.get("user_email"));
+    		   infoMap.put("friends_count", userinfoArray.get("friends_count"));
+    		   list.add(infoMap);
+           }
+            
+           
+           
+     
+        return list;
+    }
 	public void setAutoCompleteData(){
 	      ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 	                 android.R.layout.simple_dropdown_item_1line, COUNTRIES);
@@ -389,5 +462,19 @@ public class LoginAndRegistActivity extends Activity {
 			break;
 		}
 	}
+    public void showUserInfo(HashMap<String, Object> userinfoMap){
+//    	userName = (TextView)findViewById(R.id.userName);
+//    	userName.setText();
+//    	Intent intent = new Intent();
+    	Intent intent  = new Intent();
+		intent.setClass(LoginAndRegistActivity.this, MyDiscountFragment.class);
+		intent.putExtra("type", GlobalParameter.LOGIN_SUCCESS);
+		intent.putExtra("userinfo",userinfoMap.get("user_name").toString());
+//		startActivity(intent);
+    	LoginAndRegistActivity.this.setResult(GlobalParameter.LOGIN_SUCCESS, intent);  
+          
+          /* 结束这个activity */ 
+    	LoginAndRegistActivity.this.finish(); 
+    }
 	
 }
